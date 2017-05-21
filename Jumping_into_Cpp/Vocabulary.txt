@@ -1,0 +1,10 @@
+
+assignment operator is '='
+string literal = "Chris"
+input buffer 
+rint buffer
+arity = e.g. c++; //1 arity, a = b + c; // 2 arity
+
+
+Compiler stuff
+http://www.rapidtables.com/code/linux/gcc/gcc-o.htm

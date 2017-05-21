@@ -1,0 +1,1 @@
+Control + W + Control + W = Switchs between windows
