@@ -1,0 +1,5 @@
+Pregunta # | Respuestas  | Respuesta Correcta 
+1          |   .B        |  .A // The case statement, read carefully                      
+2          |   .B        |  .B                     
+3          |   .C        |  .C                     
+4          |   .D        |  .D                     
