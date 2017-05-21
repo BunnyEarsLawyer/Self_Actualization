@@ -1,0 +1,153 @@
+ch5 Loops
+
+The program will behave differently thanks to if statements but it will only run once.
+
+Here you learn how to repeatedly run a block of code.
+
+A loop let's you write a simple stement but produce a greater and more complex result by simple repetition. E.g. message board.
+
+E.g. you can prompt a user for a pssword as many times as the user is willing to try.
+E.g. you can display many posts on a forum
+
+3 types of loops:
+- WHILE LOOP
+- FOR LOOP
+- DO WHILE
+
+Avoid infinte loops by letting your check condition be false at some point.
+
+Common mistake
+for (i = 1)
+//i=1 just returns the value assigned, so it's always true!
+
+SAYS: "While the condition is true, execute this block of code"
+------------------------------
+- FOR LOOP
+
+This is the syntax:
+
+for ( variable initialization; condition; variable update)
+{
+  // Code to execute if the condition is true
+}
+
+//It's more compact than a while loop.
+
+* Variable initialization = (int ii = 0)
+ii = loop variable
+ii = loop counter
+// Traditionally we use ii, i, or jj
+
+* Loop Condition
+Tells the program to repeat until the loop condition is false.
+
+* Variable update
+Where we update the loop variable.
+i = i + 10
+
+The foor loop is a compact way of writing out a loop so all goes in 1 line.
+
+Notice we use semi-colons to separate the sections.
+
+****ALL SECTIONS CAN BE EMPTY! But you need the semicolons
+Something else can stop it.
+
+SAYS: "Start with i = 0 and loop until i < 10"
+------------------------------
+
+- DO WHILE LOOP
+
+The main point is to make it execute at least once.
+
+These are rare and special purpose. The condition is checked at the end. Pretty much a while loop put backwards.
+
+do 
+{
+
+  //body
+
+} while (condition);
+
+SAYS: "Execute this block of code, and then loop back while the condition is true"
+
+It has a super-special semicolon required at the end. Just don't forget it.
+
+
+------------------------------
+- BREAK KEYWORD
+
+This keyword lets you exit out of the loop early.
+
+You can put it wherever, it jumps to the closing brace and ends the loop.
+
+
+------------------------------
+- CONTINUE KEYWORD
+
+It will jump to the beginning of the loop so the loop can continue after.
+
+It is most useful when you can to skip code in the body of a loop. E.g. a user's
+input is invalid, you check that and skip a block of code.
+
+
+------------------------------
+
+- NESTED LOOPS
+
+Say you want to loop 2 values. 
+
+Called nested b/c there is one loop inside another one.
+-outter loop
+-inner loop
+
+Don't use the same variable to loop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
