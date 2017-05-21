@@ -1,0 +1,8 @@
+Pregunta # | Respuestas | Respuesta Correcta 
+1          |  C.        |  C                  
+2          |  D.        |  D                  
+3          |  C.        |  C                  
+4          |  B.        |  B                  
+5          |  B.        |  C. Use getline                  
+6          |  B.        |  A. 0     
+7          |  C.        |  C.               

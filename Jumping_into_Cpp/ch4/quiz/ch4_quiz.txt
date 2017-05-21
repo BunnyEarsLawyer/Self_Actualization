@@ -1,0 +1,5 @@
+Pregunta # | Respuestas  | Respuesta Correcta 
+1          |   .E        |    E                 
+2          |   .B        |    B                 
+3          |   .A        |    A                 
+4          |   .C        |    C                 
