@@ -1,0 +1,170 @@
+
+Ch 6
+
+Functions allow you to re-use code and make code nicer to read.
+
+Use functions instead of copying and pasting all the time 
+and instead of having big fat files that are hard to read.
+
+You have already seen a function. The main function!
+
+Functions have the following form:
+[return type, if not it's void] [function name] [input values, if any, in parenthesis]
+
+E.g.
+int add(int a, int b)
+{
+    return a+b;
+}
+
+void add(int a, int b)
+{
+    //Body without return
+}
+
+void add()
+{
+    //Body without return
+}
+
+E.g. how to use
+
+add(1,2); // Ignoring return value.
+
+----------Local Variables and Global variables -------------------
+Scope = visibility of the variable.
+
+You will have many variables inside your functions.
+
+Each variable has a name. The functions has access to their own variables.
+A.K.A. Variables declared wihtin a function are available only in the scope of the function, 
+       when that function is executing.
+
+One function cannot access the variable made in another function.
+A.K.A Variables declared in the scopt of one function are not available to other functions that 
+are called during execution of the first.
+
+-> Arguments too, are declared 'in the scope' of the function. 
+The caller does not have access to the arguments even thought they provide the value.
+
+
+-> Curly brackets defines a new, more narrow scope!!!
+The compiler won't stop you from creating two variables with the same name, as long as they 
+are used in two different scopes.
+
+
+----------Global variables -------------------
+All functions can access global variables.
+
+See example global_variable.cpp
+
+Using global variables makes your code more difficult to understand,
+to know how a global variable is really used you have took look everywhere!
+
+Using a global variable is rarely the right thing to do.
+
+Prefer passing arguments to functions ***
+
+---------- Scope in functions  -------------------
+
+-Same rules of scoping apply to functions as to variables.
+
+E.g. If the function is declared after main, and used in main, code will not compile.
+
+Options
+1. Declare the function before you define it.
+2. Put the whole function (declaration and definition) before the scope to use it.
+
+Vocab
+-declaration: gives the name, return type, and arguments
+-definition: the details
+-function prototype
+
+E.g. Function prototype
+int add(int x, int y;
+
+---------- When to use functions  -------------------
+
+- When you're repeating code again and again
+-- If you have written code more than 3 times, write a function
+- When you want to make code easier to read
+-- e.g. Code that retrieves key presses, converts them to electrical signals, 
+and reads them into a library
+int x;
+cin >> x;
+
+By writing a function you can focus on what the function takes as input and gives as output 
+rather than needing to remember the details.
+
+If you have the details mixed in the larger picture it becomes hard to read.
+
+- Naming and Overloading functions
+-- Naming is important. They help you understand what the code is doing.
+-- Pick a name that shows an important action of the function b/c you cannot describe implementation
+
+
+-Overloading functions
+--What if you need a function that does the same thing but with two ways? 
+--Not a problem! C++ allows function overloading
+--you can name more than one function with the same name as long as they have different argument lists
+
+Vocab
+-overloading
+
+E.g.
+int computetriagleArea (int x1, int y1, int x2, int y2, int x3, int y3);
+
+int computetriagleArea (int width, int height);
+
+--The compiler can tell apart the two functions b/c they have different arguments.
+
+computetriagleArea(1,1,1,4,1,9);
+computetriagleArea(5,10);
+
+-- Don't abuse this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
