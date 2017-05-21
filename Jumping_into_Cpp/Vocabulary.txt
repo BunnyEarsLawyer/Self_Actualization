@@ -6,5 +6,18 @@ rint buffer
 arity = e.g. c++; //1 arity, a = b + c; // 2 arity
 
 
+-----------------------------------------------------------
 Compiler stuff
 http://www.rapidtables.com/code/linux/gcc/gcc-o.htm
+-----------------------------------------------------------
+
+GDB Examples.
+-Og = default
+$g++ numbers_to_English_text.cpp -Og -o convert_to_words
+
+-----------------------------------------------------------
+(gdb) b main //breakpoing at the main function :)
+-----------------------------------------------------------
+
+-g = command to get debugger to set up breakpoints
+$ gcc -g prog2.c -o prog2 
