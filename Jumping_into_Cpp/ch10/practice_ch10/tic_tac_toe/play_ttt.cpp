@@ -40,6 +40,10 @@ int main()
 		   
 		    std::cout << " Change players\n"; 
 
+  		    check_horizontal_lines(); 
+  		    check_vertical_lines(); 
+  		    check_cross(); 
+
     }
 
 }
