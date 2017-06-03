@@ -138,7 +138,16 @@ Unix    = Use make (http://wwww.cprogramming.com/tutorial/makefiles.html)
 
 ----------How to split your program accross different files -----------
 
+- Separate your code to take advantege of separate compilation.
 
+E.g.
+You have shared code in a program 'Orig.cpp' which you wish to REUSE in a new program.
+
+Step 1. Split out declaration and definition
+Step 2. Figure out which functions need to be shared.
+Step 3. Move shared function into their new files
+
+See Linked List example
 
 
 
