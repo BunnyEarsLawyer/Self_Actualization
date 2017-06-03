@@ -33,51 +33,83 @@ enum SquareState
 //
 // There are 12 possible 3 in a row scnearios, only need to check 8
 //
-void check_cross() 
+bool check_cross() 
 {
+
+   // Do not assign a value to this bool. Otherwise it's not updated.
+   bool is_winner;
+
    // I have no choice, I can't check all 3 at the same time
    if(  board[1][1]  == board[0][0] && board[1][1]  == board[2][2]  )
    {
-   	std::cout << "heeeyyy 3 in a row diagonal right 135" << std::endl;
+
+        is_winner = true;
+
    }
    if(  board[1][1]  == board[0][2] && board[1][1]  == board[2][0]  )
    {
-   	std::cout << "heeeyyy 3 in a row diagonal left 45" << std::endl;
+
+        is_winner = true;
+
    }
+
+   return is_winner;
 }
 
-void check_horizontal_lines() 
+bool check_horizontal_lines() 
 {
+
+   bool is_winner;
+
    // I have no choice, I can't check all 3 at the same time
    if(  board[0][0]  == board[0][1] && board[0][0]  == board[0][2]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
    if(  board[1][0]  == board[1][1] && board[1][0]  == board[1][2]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
    if(  board[2][0]  == board[2][1] && board[2][0]  == board[2][2]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
+   
+   return is_winner;
 }
 
-void check_vertical_lines() 
+bool check_vertical_lines() 
 {
+
+   bool is_winner;
+
    // I have no choice, I can't check all 3 at the same time
    if(  board[0][0]  == board[1][0] && board[0][0]  == board[2][0]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
    if(  board[0][1]  == board[1][1] && board[0][1]  == board[2][1]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
    if(  board[0][2]  == board[1][2] && board[0][2]  == board[2][2]  )
    {
-   	std::cout << "heeeyyy winner" << std::endl;
+
+        is_winner = true;
+
    }
+    
+   return is_winner;
 }
 
 int ask_user(std::string message)

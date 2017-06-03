@@ -25,25 +25,35 @@ int main()
 
     draw_numbered_board(); 
 
+    bool is_winner = false;
+
     for(int ii = 0; ii < 9; ++ii)
     {
-    
-		    player_location_input = ask_user(message_to_get_location);
-		
-		    list_options();
-		
-		    player_state_input = ask_user(message_to_get_state);
-		
-		    change_square_state( player_location_input, player_state_input );
+
+	player_location_input = ask_user(message_to_get_location);
+	
+	list_options();
+
+	player_state_input = ask_user(message_to_get_state);
+	
+	change_square_state( player_location_input, player_state_input );
                     
-                    draw_numbered_board(); 
+	draw_numbered_board(); 
 		   
-		    std::cout << " Change players\n"; 
+	std::cout << " Change players\n"; 
 
-  		    check_horizontal_lines(); 
-  		    check_vertical_lines(); 
-  		    check_cross(); 
+	is_winner = check_horizontal_lines(); 
 
+  	is_winner = check_vertical_lines(); 
+
+  	is_winner = check_cross(); 
+
+	if(is_winner == true)
+	{
+		std::cout << "Heyyy 3 in a row. A Winner";
+		break;	
+	}
+	
     }
 
 }
