@@ -149,6 +149,101 @@ Step 3. Move shared function into their new files
 
 See Linked List example
 
+----------The include guard -----------
+
+- Make sure that function declarations don't show up twice in a source file.
+
+E.g. 
+
+newheader.h
+#include "linkedlist.h"
+
+orig.cpp
+#include "linkedlist.h"
+#include "newheader.h" // already included linkedlist.h
+
+- To avoid this problem use an 'include guard'
+
+Vocab
+- Include guard
+
+- The 'include guard' uses the c preprocessor to control if a file is included or not
+
+if <we haven't included this file yet>
+   <mark it that we have include it>
+   <include it>
+
+//
+// All header files should have include guards:
+//
+#ifndef ORIG_H
+//header contents
+#endif
+
+
+It reads 'If not defined, include the block of code to the next #endif'
+
+- It is important that your header guard name is unique, a technique is to end
+the name with _H
+
+----------Dos and Don'ts of Header files -----------
+
+- Never include a .cpp file directly
+
+The compiler will compile a copy for each function definition in the .cpp file into each object file.
+The linker will see multiple definitions of the same function. (no-no)
+
+- Only include the .h file
+
+
+
+---------- Handling multiple source files in your development environment -----------
+
+SKIPPING: Code::Blocks
+SKIPPING: Xcode (Mac)
+
+---g++ in Ubuntu---
+
+orig.cpp
+shared.cpp
+shared.h
+
+// Run this command
+
+$ g++ orig.cpp shared.cpp
+
+// This will compile the source files. No need to mention the header file (already included ^_^)
+
+1. COMPILE
+
+// If you want the full benefits of a separate compilation you can compile each file separately
+
+$ g++ -c orig.cpp
+
+$ g++ -c shared.cpp
+
+2. LINK
+
+// Then you link them
+
+$ g++ orig.o shared.o
+
+// or 
+
+$ g++ *.o
+
+---g++ and makefile---
+
+// Manually controlling separate compilation is tedious. Use a makefile instead
+
+Vocab
+- makefile
+
+http://wwww.cprogramming.com/tutorial/makefiles.html
+
+4. COMPILE + LINK 
+
+$ g++ orig.cpp shared.cpp
 
 
 
@@ -156,7 +251,7 @@ See Linked List example
 
 
 
- 
+
 
 
 
