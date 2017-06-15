@@ -1,0 +1,27 @@
+
+STACK ----------------------------------------------------------------------------
+Good video: https://www.youtube.com/watch?v=vcfQVwtoyHY
+
+Here is the sequence of steps that takes place when a function is called:
+
+1   The address of the instruction beyond the function call is pushed onto the stack. 
+    This is how the CPU remembers where to go after the function returns.
+2   Room is made on the stack for the function’s return type. This is just a placeholder for now.
+3   The CPU jumps to the function’s code.
+4   The current top of the stack is held in a special pointer called the stack frame.
+5   Everything added to the stack after this point is considered “local” to the function.
+6   All function arguments are placed on the stack.
+7   The instructions inside of the function begin executing.
+8   Local variables are pushed onto the stack as they are define
+
+From: https://stackoverflow.com/questions/9247645/how-are-the-function-local-variables-accessed-from-the-stack
+
+The stack is a metaphoric stack. Remember it is still a RAM, so you 
+can access each address without popping the rest, if you know what you are looking for.
+
+Since the automatic variable's size is known at compile time - 
+the compiler marks offset for each variable, the offset is determined from where the 
+automatic variables section on stack start [or the stack's head, both are valid and 
+the specific implementation depends might depend on architecture], and it access 
+them by merely: start + offset for each variable's offset.
+
