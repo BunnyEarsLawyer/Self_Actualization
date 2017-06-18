@@ -1,0 +1,7 @@
+Pregunta # | Respuestas  | Respuesta Correcta 
+1          |   .A        |  .D                    
+2          |   .C        |  .D                       
+3          |   .A        |  .C                       
+4          |   .D        |  .D                      
+5          |   .B        |  .B                      
+6          |   .B        |  .B                      
