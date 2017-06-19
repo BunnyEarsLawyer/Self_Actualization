@@ -7,31 +7,119 @@
 #include <cstdlib>
 #include <ctime>
 //
-// Modulus (%) returns the remainder e.g. 4/3 remainder is 1.
-// If you divide a number by 4, remainder is b/c 0 and 3.
-// If you divide your random number by the size of your range, you end up with a number 
-// b/t 0 and the size of the range minus 1.
-//
+// Play poker
+// Provide 5 cards to the player, let player choose new cards
+// Round of betting
+// Each player may discard up to 3 cards.
+// Player with best hand wins. 
+// 
 int randRange(int low, int high)
 {
     //
-    // We get a randome number, get it to be b/t 0 and the number of values in our range
-    // E.g. 0 to 10 has 11 values.
-    // E.g. 4 to 10 has 7 values.
-    // then add the lowest possible value
     //
     return rand() % (high - low + 1) + low;
 }
+//
+// Asks user if they want to quit
+// OUT: true if user wants to quit
+//
+bool does_user_want_to_quit()
+{
+    bool choice = false;
+    
+    std::string user_input;
 
+    std::cout <<"Wanna quit? [Y/N]\n";
+
+    getline(std::cin, user_input , '\n');
+
+    if(user_input == "Y")
+    {
+        choice = true;
+    }
+
+    return choice;
+}
+
+std::string lookup_card_name(int card_value)
+{
+
+    std::string card_name;
+
+    switch ( card_value )
+    {
+    	case 11:
+      	    card_name = " Jack ";
+      	    break;
+    	case 12:
+      	    card_name = " Queen ";
+    	    break;
+    	case 13:
+      	    card_name = " Queen ";
+    	    break;
+    	case 14:
+      	    card_name = " Ace ";
+    	    break;
+
+	default:
+      	    std::cout << "Error: Bad input. Quitting\n" << std::endl;
+      	    break;
+    }
+
+    return card_name;
+
+}
 int main()
 {
+    bool user_wants_to_quit = false;
+
     //
-    // Seed in the time
+    // In poker, Ace (14) > King (13) > Queen (12) > Jack (11), 10,..., 2
+    //
+    int card_value_1 = 0;
+    int card_value_2 = 0;
+    int card_value_3 = 0;
+    int card_value_4 = 0;
+    int card_value_5 = 0;
+    // Each suit has 13 cards:`
+    // Clubs
+    // Diamonds
+    // Hearts
+    // Spades   
+    int card_symbol_1 = 0;
+    int card_symbol_2 = 0;
+    int card_symbol_3 = 0;
+    int card_symbol_4 = 0;
+    int card_symbol_5 = 0;
+
+    srand( time(NULL) );
+
+    std::cout <<"Hi! Let's play poker.\n"
+              <<"Here are your cards. Mine are hidden. \n";
+    //
     // srand returns a random number b/t 0 and a constant called RAND_MAX = 32767 at least
     //
-    srand( time(NULL) );
-    for (int ii = 0; ii < 1000; ++ii)
+    do
     {
-        std::cout << randRange(0,1) << " ";
+        card_value_1 = randRange(0,14);
+        card_value_2 = randRange(0,14);
+        card_value_3 = randRange(0,14);
+        card_value_4 = randRange(0,14);
+        card_value_5 = randRange(0,14);
+
+        card_symbol_1 = randRange(0,4);
+        card_symbol_2 = randRange(0,4);
+        card_symbol_3 = randRange(0,4);
+        card_symbol_4 = randRange(0,4);
+        card_symbol_5 = randRange(0,4);
+
+        std::cout << card_value_1 << " of " << card_symbol_1 << std::endl;
+        std::cout << card_value_2 << " of " << card_symbol_2 << std::endl;
+        std::cout << card_value_3 << " of " << card_symbol_3 << std::endl;
+        std::cout << card_value_4 << " of " << card_symbol_4 << std::endl;
+        std::cout << card_value_5 << " of " << card_symbol_5 << std::endl;
+
+        user_wants_to_quit = does_user_want_to_quit();
     }
+    while(user_wants_to_quit != true);
 }
