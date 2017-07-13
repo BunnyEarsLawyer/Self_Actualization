@@ -35,3 +35,5 @@ Vocab
  
 - Summary
 -- A pointer stores an address, so when you use the bare pointer, you get that address back. You have to add something extra, the asterisk in order to retrieve or modify the value stored at the address. 
+
+- If you get confused, draw box-and-arrow diagrams.
