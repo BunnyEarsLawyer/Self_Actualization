@@ -37,3 +37,20 @@ Vocab
 -- A pointer stores an address, so when you use the bare pointer, you get that address back. You have to add something extra, the asterisk in order to retrieve or modify the value stored at the address. 
 
 - If you get confused, draw box-and-arrow diagrams.
+
+Uninitialized pointers and NULL:
+- If p_int was not intialized to point to a memory address, it can point to anything!
+- Nasty bug: overwritting memory held in another variable or crashing your program.
+- If you need to have a pointer NOT initialized use the value NULL ( in C++0x = C++ 2008 or 2009) 
+or nullptr (in C++ 11 = c++0B)
+- Use nullptr not NULL!
+// IMPORTANT: b/c nullptr is always a pointer type. 0 (aka. C's NULL bridged over into C++) could cause ambiguity in overloaded function resolution, among other things. 
+// Source: https://stackoverflow.com/questions/20509734/null-vs-nullptr-why-was-it-replaced
+
+
+
+
+
+
+
+   

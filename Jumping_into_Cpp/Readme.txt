@@ -1,4 +1,6 @@
 Random notes:
+// Color GDB with GDB Dashboard
+https://stackoverflow.com/questions/209534/how-to-highlight-and-color-gdb-output-during-interactive-debugging
 
 e.g
 (gdb) b main
