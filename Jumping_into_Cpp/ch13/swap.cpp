@@ -10,6 +10,11 @@
 // to modify that variable with...
 // a pair of functions that swap the values in two variables
 //
+
+//
+// Notice this function does not swap anything!
+// b/c the variables local   
+//
 void swap1 (int left, int right)
 {
 
@@ -32,6 +37,21 @@ void swap2 (int *p_left, int *p_right)
 
 }
 
+//
+// Using references instead of pointers
+// This function will change the originals!
+//
+void swap3 (int& left, int& right)
+{
+
+    int temp = left;
+
+    left = right;
+
+    right = temp;
+
+}
+
 int main()
 {
 
@@ -39,15 +59,25 @@ int main()
 
     int y = 2;
 
+    std::cout << "Original content... \n " 
+              << "x: " << x << "\n"
+              << "y: " << y << "\n";
+
     swap1(x,y);
     
-    std::cout << "Swapping by passing variables... \n " 
+    std::cout << "Swapping by passing variables (bad)...\n " 
               << "x: " << x << "\n"
               << "y: " << y << "\n";
 
     swap2( &x, &y );
 
     std::cout << "Swapping by passing addresses... \n " 
+              << "x: " << x << "\n"
+              << "y: " << y << "\n";
+
+    swap3( x, y );
+
+    std::cout << "Swapping by passing references... \n " 
               << "x: " << x << "\n"
               << "y: " << y << "\n";
 
