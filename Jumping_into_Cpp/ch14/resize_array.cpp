@@ -26,12 +26,19 @@ void printArray(int * p_values,
 
 int main()
 {
+
     int next_element = 0;
+
     int size = 10;
+
     int *p_values = new int[ size ];
+
     int val;
+
     std::cout << "Please enter a number: ";
+
     std::cin >> val;
+
     while (val > 0)
     { 
         if (size == next_element + 1 )
@@ -42,13 +49,23 @@ int main()
             //
             p_values = growArray(p_values, & size);
         }
-    p_values[next_element] = val;
-    next_element++;
-    std::cout << " Current array values are: " << std::endl;
-    printArray( p_values, size, next_element );
-    std::cout <<  "Please enter a number (or 0 to exit):";
-    std::cin >> val;
+
+        p_values[next_element] = val;
+
+        next_element++;
+
+        std::cout << " Current array values are: " << std::endl;
+
+        printArray( p_values, size, next_element );
+
+        std::cout <<  "Please enter a number (or 0 to exit):";
+
+        std::cin >> val;
+
     }
+
+    delete [] p_values;
+
 }
 
 int *growArray (int* p_values, int *size)
