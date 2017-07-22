@@ -16,6 +16,7 @@
 // This program will keep asking for a number
 // and storing them in a growing array until
 // the user decides to enter 0
+// (Requests more memory and coppies over the old values!)
 //
 
 int *growArray (int* p_values, int *size);
@@ -68,8 +69,19 @@ int main()
 
 }
 
+//
+// Input:
+// Pointer to first element in array (p_values)
+// Pointer to size value             (size)
+// Output: 
+// Pointer to the first element of a new array (p_new_values)
+//
 int *growArray (int* p_values, int *size)
 {
+   //
+   // Doubles the size of the array 
+   // b/c it is inefficient to allocate memory 1-by-1
+   //
 
    *size *= 2;
 
@@ -79,6 +91,12 @@ int *growArray (int* p_values, int *size)
    {
        p_new_values [ii] = p_values [ii];
    }
+
+   //
+   // Careful to delete p_values after copying data
+   // Else, we'd leak memory b/c we overwrite the pointer
+   // that holds our array upon return from growArray
+   //
 
    delete [] p_values;
 
