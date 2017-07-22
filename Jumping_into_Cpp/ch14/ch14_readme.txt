@@ -179,14 +179,73 @@ Vocab
 ------------------------------------------------------------
 Pointers to pointers 
 
+- A pointer also has an address you can access.
+
+Syntax:
+
+    int *p_y;
+
+    int **p_p_x;
+
+    p_p_x = & p_y;
+
+    *p_p_x = new int;
 
 
+- You can use pointers-to-pointers to make a 2D array.
+- Think like this:
+  - You have a 1D array of pointers
+  - Each pointer points to another 1D array.
+
+E.g. tic-tac-toe board
+
+  - Each pointer in an array points to a row of the tic-tac-toe board.
+
+  int **p_p_tictactoe;
+
+  //
+  // Notice it's a int* b/c we are allocating an array of pointers
+  //
+  p_p_tictactoe = new int*[3];
+
+  //
+  // Now make each pointer store the address of an array of integers
+  //
+  for (int ii = 0; ii < 3; ++ii)
+  {
+
+      p_p_tictactoe[ii] = new int[3];
+
+  }
+  - You would use other loops to set values and delete pointers.
+  - Normally you wouldn't use pointers b/c the tic-tac-toe board has
+    a set size. However, if you wanted an arbitrarily large board, then use 
+    pointer-to-pointers.
 
 
+Pointer-to-pointer and 2D arrays:
+ - A 2D array make of pointers to pointers is not like a regular 2D array
+   b/c it isn't layed out sequentially.
+
+Bad code that won't compile:
+   int x[8][8];
+   int **y = x; // won't compile!
 
 
+ - You CANNOT pass a pointer to a pointer into a function expecting 
+   a multidimensional array even though you can pass an pointer to a function
+   that expects an array with one dimension.
 
+ - Arrays use pointer arithmetic to get the right value
+ - pointer-to-pointer dereferences twice-one to find the row, another to find the value
+ - pointer-to-pointer DOES NOT do pointer math so the compiler can't let you pass it
+   to a function.
 
+-------------------------------------------------------
+Taking stock of pointers
 
+- Just know the syntax and initializing pointers and understand how to allocate memory
+
+-------------------------------------------------------
 
 

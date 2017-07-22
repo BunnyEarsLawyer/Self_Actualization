@@ -1,1 +1,7 @@
 Control + W + Control + W = Switchs between windows
+
+
+How to search fo any uppercase letter and replace with nothing
+:s/[A-Z]//g
+
+
