@@ -41,7 +41,7 @@ Vocab:
 
 Pointers and arrayws:
 
-- Q: how do you use new to get mroe memorY?
+- Q: how do you use new to get more memorY?
 - A pointer can be treated like an array 
 - An array is a series of values laid sequentially in memory
 - You can actually create a new array dynamically from the free store.
@@ -248,4 +248,4 @@ Taking stock of pointers
 
 -------------------------------------------------------
 
-
+Sidenote: malloc and free are from C!
