@@ -11,6 +11,14 @@
 // (gdb) info locals 
 // (gdb) list
 // (gdb) c
+// (gdb) E.g. >>> print p_p_table
+// (gdb) E.g. >>> print *p_p_table
+// (gdb) E.g. >>> print *(*p_p_table + 1)
+// (gdb) E.g. >>> print *(*p_p_table + 1) + 1
+// (gdb) b 72 
+// (gdb) c // skips to break I set
+
+
 
 #include <iostream>
 
@@ -35,12 +43,11 @@ int main()
     int ** p_p_table;
 
     p_p_table = new int*[ n ];
-/*
-  
+
     //
     // Now make each pointer store the address of an array of integers
     //
-    for (int ii = 0; ii < 3; ++ii)
+    for (int ii = 0; ii < n; ++ii)
     {
 
         p_p_table[ii] = new int[n];
@@ -48,27 +55,35 @@ int main()
     }
 
     //
+    // Now you can use the allocated memory like a 2D array
     //
-    //
-    for (int ii = 0; ii < 3; ++ii)
+    for (int ii = 0; ii < n; ++ii)
     {
 
-        **p_p_table[ii] = ii;
+        for (int jj = 0; jj < n; ++jj)
+        {
+
+            p_p_table[ii][jj] = ii + jj;
  
+        }
+
     }
 
     //
-    // Delete
+    // Delete in reverse order
     //
-    for (int ii = 0; ii < 3; ++ii)
+    for (int ii = 0; ii < n; ++ii)
     {
 
-        **p_p_table[ii] = ii;
-        delete [] p_values;
+        delete [] p_p_table [ii];
  
     }
+    
+    delete [] p_p_table;
 
+    int x = 4; 
 
+/*
 */
 
 }
