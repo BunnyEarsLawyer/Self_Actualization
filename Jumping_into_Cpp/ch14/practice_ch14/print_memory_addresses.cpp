@@ -39,6 +39,7 @@
 
 //
 // Builds a two dimensional multiplication table with arbitrary sizes for the two dimensions
+// In addition it shows the addresses of each element
 //
 
 int main()
@@ -47,13 +48,19 @@ int main()
     //
     // Pointer to array holding n pointers
     //
-    int n = 8;
+    int n = 3;
 
     int array_size = n - 1;
 
     int ** p_p_table;
 
     p_p_table = new int*[ n ];
+
+    //
+    // { [p1] [p2] [p3] }
+    // p1 -> { [0] [1] [2] } -  p2 -> { [0] [1] [2] } - p3 ->  { [0] [1] [2] }
+    //
+
 
     //
     // Now make each pointer store the address of an array of integers
@@ -75,17 +82,11 @@ int main()
         for (int jj = 0; jj < n; ++jj)
         {
 
-            p_p_table[ii][jj] = ii*jj;
+            p_p_table[ii][jj] = ii;
  
         }
 
     }
-
-    std::cout  << "sizeof(int)" << "\n "
-               << sizeof(int) << std::endl;
-    std::cout  << "array_size = n - 1" << "\n "
-               << array_size << std::endl;
-
 
     //
     // Printing out content
@@ -108,8 +109,47 @@ int main()
 
     }
 
+    //
+    // Printing out addresses 
+    //
+    for (int ii = 0; ii < n; ++ii)
+    {
+
+        for (int jj = 0; jj < n; ++jj)
+        {
+
+            std::cout  << "Address of (" << ii << "," <<  jj << ") = "
+                       << & p_p_table[ii][jj] << " ";
+   
+            if( jj == n - 1 )
+            {
+                std::cout << std::endl;
+            }
+ 
+        }
+
+    }
+
+    std::cout  << "sizeof(int) " << "\n "
+               << sizeof(int) << std::endl;
+
     std::cout  << "Pointer p_p_table " << "\n "
                << p_p_table << std::endl;
+
+    std::cout  << "Pointer Dereferening once *p_p_table " << "\n "
+               << *p_p_table << std::endl;
+
+    std::cout  << "Next element *p_p_table + 1" << "\n "
+               << *p_p_table + 1 << std::endl;
+
+    std::cout  << "Next element *p_p_table + 2" << "\n "
+               << *p_p_table + 2 << std::endl;
+
+    std::cout  << "Next element *p_p_table + array_size" << "\n "
+               << *p_p_table + array_size << std::endl;
+
+    std::cout  << "Next element *p_p_table + array_size*sizeof(int)" << "\n "
+               << *p_p_table + array_size*sizeof(int) << std::endl;
 
     std::cout  << "Pointer Dereferencing Twice **p_p_table " << "\n "
                << **p_p_table << std::endl;
@@ -119,7 +159,6 @@ int main()
 
     std::cout  << "Pointer Math *(*p_p_table + array_size*sizeof(int) + 2)" << "\n "
                << *(*p_p_table + array_size*sizeof(int) + 2) << std::endl;
-
 
     //
     // Delete in reverse order
@@ -132,8 +171,6 @@ int main()
     }
     
     delete [] p_p_table;
-
-    int x = 4; 
 
 }
 
