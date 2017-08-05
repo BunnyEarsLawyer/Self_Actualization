@@ -166,44 +166,10 @@ ArrayWrapper<T>::ArrayWrapper (int size)
 ----------------------------------
 
 Tips for working with templates:
+- Write your class normally first, them make it into a template.
+
+See calc.cpp
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
