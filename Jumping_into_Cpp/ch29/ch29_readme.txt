@@ -237,7 +237,117 @@ Why? B/c of the way templates are compiled.
 
 Summarizing templates:
 
--  
+- Templates allow you to make generic code.
+
+- Templates are used frequently to implement C++ libraries (e.g. Standard Template Library)
+
+- You will often find that you do not need to write template code.
+
+- Be on lookout for code that has the same structure but has different types.
+
+- E.g. code that loops over multiple different vectors and that the operation is the same.
+
+- Many times, you need for a template comes from working on another type 
+  that is already a template! 
+
+- E.g. One function adds the values of a vector and another appends all strings in a vector.
+
+  Both use the same logic: iterate and use the + opeartor but they don't work on diff types.
+
+  Follow the principle: "Don't repeat yourself"
+
+Diagnosis template error messages:
+
+- Downside of using templats is that compilers give hard to understand error messages.
+
+- Even if it isn't your templates, e.g. you use the STL library.
+
+Example:
+
+  vector <int, int> vec;   // Creates pages of error.
+
+- What you really want is this:
+
+error: 'int' is not a class, struct, or union type
+
+- The reason it fails is that int doesn't have a val. So you can't do int.val
+
+- However, the compiler just uses 'Duck Typing' for all the things int does not have.
+  My interpration, it checks for the behaviors and contents and lists all of the 
+  things it didn't like in int.
+
+Another example:
+-------------------------
+template <typename T>
+class Foo
+{
+   Foo ()
+   {
+      T x;         // T can't be an integer b/c
+      x.val = 1;   // T must have a field called val. Integers have no fields!
+   }
+
+}
+-------------------------
+// This would fail to compile:
+Foo <int> a;
+-------------------------
+
+- Duck Typing = 
+  The template does not care about the type given
+  it only cares that the type "fit" into the code.
+
+- In the prev examples, the vector template has a similar constraint on the 2nd parameter.
+
+- All it needs is a type that supports more functionality than a basic integer.
+
+- All of the errors come from the many different ways in which an int would be 
+  and invalid type for that template parameter!
+
+ 
+How to fix a massive wall of text: 
+
+- 1. Start at the 'error' keywords, fix one thing at a time.
+
+E.g. : In instantiation of 'std::_Vector_base<int, int>
+
+Vocab:
+
+- " In instantiation of blah template" = 
+  " When trying to compile a template with this set of template parameters"
+  = There is a problem when trying to create a template with those params
+- _Vector_base is a helper class used to implement vector.
+ 
+E.g. : 159: instantiated from 'std::vector<int, int>'
+     template_err.cc:6
+
+- The _Vector_base template failed to compile b/c of an attempt to create the template
+  vector<int,int>
+
+- See line 6 of template_err.cc, that's what cause the error.
+
+- Often you can tell what is wrong just looking at your code.
+
+- If you can't tell whats wrong at first and keep reading you get to the actual error message.
+
+E.g. :'int' is not a class, struct or union type
+
+- This tells you the compiler was expecting a class or a struct rather than a built-in type, like int.
+
+- Vectors should be able to hold any type, so this suggests there is a problem with a parameter.
+
+- Double check how to use a vector, then you see you only need a single parameter.
+
+Fix. Recompile.
+  
+   vector <int> vec;
+
+With templates, the first error often causes all other errors. 
+
+It is better to fix one issue at a time.
+
+
+
 
 
 
