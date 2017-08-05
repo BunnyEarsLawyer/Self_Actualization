@@ -4,9 +4,10 @@
 // How to debug: $gdb ./$MY_BINARY_NAME
 //
 #include <iostream>
-// typedef  my_type int
+
+// TODO: Should put template into a .hxx and the main part into a main.cpp
  
-// Try entering 5.99 and notice it's core dump, floating point not expected 
+// Try entering 5.99 and notice it's not accepted b/c the inputs are put in ints. 
 // Try entering a letter, like 'a', and notice it's 0, floating point not expected 
 
 template <typename Type>

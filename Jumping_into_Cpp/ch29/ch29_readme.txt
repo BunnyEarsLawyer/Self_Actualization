@@ -191,11 +191,57 @@ template <typename Type> int Calc<Type>::multiply (int x, int y)
 
 template <typename Type> Type Calc<Type>::multiply (Type x, Type y)
 
+:-) Over time you will be comfortable enough to write template classes from scratch
+without intermediate code.
+
+IMPORTANT CAVEAT:
+Be careful that you don't over-generalize.
+E.g. a loop counter that was also an integer, you don't want to change this type.
+
 -------------------------------- 
 
+Templates and header files
 
+So far we've written .cpp files.
 
+What if we want .hh files?
+
+The problem is that code that uses a template function (or template class)
+MUST have access to the entire template definition for each function call 
+to a template function.
  
+
+- Different from normal functions which require that the caller only know the function
+definition.
+
+- You MUST have everything in a .hh file! 
+
+E.g. you have to have the full definition of the constructor and the add method into the 
+header file rather than placing them in a .cpp file.
+
+Why? B/c of the way templates are compiled.
+
+- Compiler mostly ignores templates when it first parses them.
+
+- It is only when you use the template with specific concrete type (e.g. Calc<int>)
+  that the compiler will generate code.
+
+- Result: You must inclode all of the template code in evrey file that uses the template.
+
+- Alert!!! You might not learn about syntax errors in the template until someone tries to use the template for the first time. 
+
+- When you make a template class, put all template definitions in the header file.
+
+- Tip: use  a different extension than .h. E.g. use .hxx
+
+
+Summarizing templates:
+
+-  
+
+
+
+
 
 
 
