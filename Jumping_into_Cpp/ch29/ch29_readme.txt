@@ -170,6 +170,36 @@ Tips for working with templates:
 
 See calc.cpp
 
+-------------------------------- 
+How to modify a class to be a template:
+
+1. Declare that there was a template type called Type:
+
+template <typename Type>
+
+2. Add this template declaraction before the class & each function definition
+
+template <typename Type> class Calc
+
+template <typename Type> int Calc::multiply(int x, int y)
+
+3. Also, modify each function definition to indicate that it was part of a template class.
+
+template <typename Type> int Calc<Type>::multiply (int x, int y)
+
+4. Finally, replace 'int' everwhere with 'Type':
+
+template <typename Type> Type Calc<Type>::multiply (Type x, Type y)
+
+-------------------------------- 
+
+
+
+ 
+
+
+
+
 
 
 
