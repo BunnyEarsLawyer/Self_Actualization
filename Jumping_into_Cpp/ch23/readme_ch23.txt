@@ -124,7 +124,24 @@ Method Syntax:
 
 see method.cpp
 
+-------------------------------
 
+- Since it can be messy to define all functions inside the structure...
+  you can take them outside!
+
+  Super Special Scoping Syntax: <structure name> :: < method name >
+
+  Just declare the functions and then define them outside with the scoping syntax.
+
+  See method_scoping_outside_struct.cpp 
+
+  For the rest of the book, we will split up the 'declaration' and 'definition' of 
+  any method longer than a few lines.
+
+  Some people argue to never expose your method implementation b/c it makes it more 
+  likely that someone will write code that depends on the exact details of the implementation.
+
+  This book does it to save space.
 
 
 
