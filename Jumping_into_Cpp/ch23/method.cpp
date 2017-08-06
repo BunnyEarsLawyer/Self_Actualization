@@ -77,4 +77,12 @@ int main()
 
     b.getMove();
 
+    /* The compiler is handling the details of letting the method access the data in the structure the method was called on.
+
+    Conceptually, the <variable>.<method> syntax is a shorthand for passing <variable> to <method>.
+
+    Now you know why we need this syntax in the chapter on STL. The functions worked like these methods. (Ch 18)
+
+    */
+
 }
