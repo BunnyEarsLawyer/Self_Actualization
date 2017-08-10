@@ -41,6 +41,32 @@
 // Builds a two dimensional multiplication table with arbitrary sizes for the two dimensions
 //
 
+void print_page( int** & p_p_table, int n )
+{
+
+    //
+    // Printing out content
+    //
+    for (int ii = 0; ii < n; ++ii)
+    {
+
+        for (int jj = 0; jj < n; ++jj)
+        {
+
+            std::cout  << "(" << ii << "," <<  jj << ") = "
+                       << p_p_table[ii][jj] << " ";
+   
+            if( jj == n - 1 )
+            {
+                std::cout << "." << std::endl;
+            }
+ 
+        }
+
+    }
+
+}
+
 int main()
 {
 
@@ -89,27 +115,9 @@ int main()
     std::cout  << "array_size = n - 1" << "\n "
                << array_size << std::endl;
 
+    std::cout  << "Printing table " << std::endl;
 
-    //
-    // Printing out content
-    //
-    for (int ii = 0; ii < n; ++ii)
-    {
-
-        for (int jj = 0; jj < n; ++jj)
-        {
-
-            std::cout  << "(" << ii << "," <<  jj << ") = "
-                       << p_p_table[ii][jj] << " ";
-   
-            if( jj == n - 1 )
-            {
-                std::cout << "." << std::endl;
-            }
- 
-        }
-
-    }
+    print_page( p_p_table, n );  
 
     std::cout  << "Pointer p_p_table " << "\n "
                << p_p_table << std::endl;
