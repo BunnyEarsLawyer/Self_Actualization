@@ -45,7 +45,10 @@ int main()
 {
 
     //
-    // Pointer to array holding n pointers
+    // Pointer to array holding n pointers. Dynamically allocated space for n types 
+    // type * pointer
+    // pointer = new type [number_of_elements]
+    // Good resource: http://www.cplusplus.com/doc/tutorial/dynamic/ 
     //
     int n = 8;
 
