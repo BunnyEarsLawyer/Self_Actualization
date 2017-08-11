@@ -2,6 +2,16 @@ Random notes:
 // Color GDB with GDB Dashboard
 https://stackoverflow.com/questions/209534/how-to-highlight-and-color-gdb-output-during-interactive-debugging
 
+// GCC: GNU Compiler Collection
+g++: GNU C++ Compiler
+gcc: GNU C   Compiler
+
+// How to build c++ 11
+$ clang++  -std=c++11
+$ g++ -std=c++11 file.cpp
+or
+$ g++ -std=c++0x file.cpp
+
 e.g
 (gdb) b main
 (gdb) r
