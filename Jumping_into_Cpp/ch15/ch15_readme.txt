@@ -74,10 +74,49 @@ structure.
 E.g.
 
 (*p_structure).my_field;
+----------------------------
 
+Taking stock of linked lists
 
+You'd have to add operations such as: adding elements into
+the middle of a list and removing elements.
 
+SECRET: You will never really need to implement a Linked List yourself
+You use an STL.
 
+The importance of linked lists is that we will use similar techniques
+to create more interesting data structures.
 
+By understanding the linked list you can better understand the tradeoffs.
 
+ADVANTAGES of LINKED LISTS:
+
+- Easily resized or added/removed to, no need to move things.
+
+ADVANTAGE OF ARRAYS:
+-  Array lets you choose any element very quickly. Just provide the index.
+- On a linked list you'd have to look through every element.
+- You can't just into the middle of a linked list :( 
+- The time it takes to access an element of the array by its index is 'constant'
+  meaning it doesn't change with the size of the array.
+- As your list grows, finding an element will become slower and slower
+
+- for the example don't assign numbers to candidates, you might as well 
+compare bynames b/c it's not that different in efficiency   
+
+Q: How much space is required for a linked list?
+- A linked list starts with a pointer and the actual datum. So it starts with twice of 
+ what an array would need.
+- Large enormous data structures, taking up twice the amount may be a big deal.
+- If you don't know how many elements will be stored, instead of allocating a large
+  array, you can allocate a new linked list only when needed.
+- You could allocate an array dynamically but it will require you to copy the elements of the array every time you need more memory.   
+
+S: General rules of thumb
+
+- Use arrays when you need constant time access to elements by index
+  and you know how many items you need to store in advance
+
+- Use linked lists when you need to be able to continually add new elements.
+  or you need to do a lot of insertions into the middle of the list.
 
