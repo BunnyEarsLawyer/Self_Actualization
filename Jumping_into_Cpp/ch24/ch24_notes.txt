@@ -1,0 +1,40 @@
+The lifecycle of a class
+
+When you create a class, you want to make it as easy to use as possible.
+
+3 basic operations a class needs to to:
+
+1. Initializing itself
+2. Cleaning up memory or other resources
+3. Copying itself
+
+- Important to create a good data type
+- E.g. string
+  - Initialize itself, even as an empty string, available to use immidietly
+  - Once you are done, string needs to clean after itself (clean the allocated memory automatically)
+  - Allow copying from one variable to another 
+
+Making it hard to use improperly.
+----------------------------------------------------
+
+Object Construction:
+
+- The C++ code that runs when an object is declared is the 'constructor'
+- A constructor should be set up so that the object can be used without futher initialization.
+- A constructor can take arguments
+  
+  E.g. vector<int> v(10); 
+
+  - Calls the vector constructor witht he value 10 so it can hold 10 things.   
+
+how to create a constructor:
+- same name as the class
+- takes no arguments
+- returns no return value
+
+See constructor.cpp 
+
+Vocab
+- constructor
+ 
+ 
