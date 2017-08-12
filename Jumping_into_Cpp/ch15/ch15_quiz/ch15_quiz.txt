@@ -1,0 +1,8 @@
+Pregunta # | Respuestas  | Respuesta Correcta 
+1          |   .B        |  .B                   
+2          |   .D        |  .D
+3          |   .C        |  .C                      
+4          |   .C        |  .C                     
+5          |   .A        |  .A                     
+6          |   .B        |  .B                     
+Note: All sounded bad in 6

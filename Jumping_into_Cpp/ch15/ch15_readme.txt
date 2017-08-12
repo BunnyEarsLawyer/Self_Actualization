@@ -74,6 +74,9 @@ structure.
 E.g.
 
 (*p_structure).my_field;
+
+- IMPORTANT: The STL actually makes it quite easy to add new elemetns to an array-like data structure, removing its advantage of linked lists. As a result, the vector class is typically a better choice than either a linked list or an array.
+
 ----------------------------
 
 Taking stock of linked lists
