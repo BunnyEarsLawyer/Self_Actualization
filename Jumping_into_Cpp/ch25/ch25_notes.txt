@@ -74,6 +74,32 @@ private
 ConstHolder::ConstHolder()
     : _val( val )
 ------------------------------
+Using the initialization for const fields
+
+Vocab
+- const  
+
+You cannot initialize a const field by assigining to it b/c those fields are ALREADY set in stone.
+
+The initialization is the only place where the class is not yet fully formed, so it's safe to set
+immutable objects.
+
+Same thing with references, it must be initialized in the 'initialization list'
+--------------------------------------------------
+Object Destruction:
+
+- Just like a constructor initializes an object, sometimes you need to have code
+  that cleans up when your object is no longer needed.
+
+- E.g. If your constructor allocates memory (or any other resources), then those resources 
+must be returned to the OS  
+  E.g. delete a pointer
+
+- Dealing with this clean up is called 'destroying the object' and it takes place in a special method
+called the 'constructor'.
+
+Vocab
+- destructor = cleans up resources and returns them to the OS
 
 
 
