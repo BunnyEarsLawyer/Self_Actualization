@@ -37,4 +37,46 @@ See constructor.cpp
 Vocab
 - constructor
  
- 
+Q: What happens if you don't create a constructor?
+
+- If you don't create a constructor, C++, friend that it is, will make one for you.
+- Check if this is still true:
+  - It will take no arguments
+  - It will initialize all the fields but not primitive tyeps (int and char)
+- Recommended you initialize things to your liking.
+
+Suprising consequences:
+- If you let C++ make default constructors and then you add non-default 
+  constructor taking 1 or more arguments, code that depended on the auto-gerated default constructor
+  will no longer compile. 
+  You need to provide a default constructor manually since the compiler will no longer make one
+  for you. 
+
+-------------------------------------------------
+Initializing members of the class
+
+Vocab
+- 'initialization list' = pass arguments, has weird syntax, : then commas ,
+
+Using the initialization list for const fields:
+- If you declare a field of your class a const then
+  that field MUST be initialized in the 'initialization list'
+- You cannot assign to it b/c they are set in stone!
+- The initializtion list is the only place where the class
+   is not yet fully formed, so it's safe to set immutable objects
+- Same reason. If you have a reference field, it MUST be intitialized in the
+  'initialization list' also.
+------------------------------
+E.g.
+private
+   const int _val;
+
+ConstHolder::ConstHolder()
+    : _val( val )
+------------------------------
+
+
+
+
+
+
