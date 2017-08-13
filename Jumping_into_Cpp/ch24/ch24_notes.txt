@@ -17,5 +17,59 @@ A class is no longer structured data, instead classes are ***defined by the meth
 
 - The default is, nothing is available to anyone except the methods that are part of the class!
 
+- The ability to makek data inaccessible outside the class allows the compiler to check programmers are not using data they shouldn't be. A godsent for maintainability!
+
+- This way you can change things internally without breaking code on the outside
+
+Vocab
+- members = each method and field of the class
+- public = things available to users of the class
+- private = things the user cannot use
+
+- Underscores (_my_awesome_int) are a style to tell which are private members
+  of a class.
+- Syntax: DO NOT use a capilar letter after the underscore (e.g. _My_awesome_int // BAD) b/c it causes compiler errors in some compilers.  
+
+Vocab
+- object
+
+- When you declare a variable of a particular class, that variables is called an object. (Evoke images of real-world things)
+
+"don't worry about the how the gears work, just press the gas"
+------------------------------------------------------------------------
+The responsibilities of a class:
+
+- Whenever you create a new class think of it like creating a new variable. (but more powerful)
+
+- "no one's going to change how you drive a car b/c then everyone would have to learn how to drive again"
+
+- Same thing for your class, there can be many callers of it.
+
+- Advice:
+  - Never make data fields public!
+  - You can't put the genie back in the bottle (making something public private is harder)
+  - Instead use setters and getters to change those variables
+
+Vocab
+- setter = for writting a private variable
+- getter = for getting a private variable
+
+Q: What does private really mean?
+
+- There is no security guarantee. Any code can use fancy pointer tricks to read that data.
+
+Vocab
+
+- 'encapsulation' = hiding your implementation (encapsulating it) so that users of the class only work with a specific set of methods that form the interface of a class.
+
+Phrases that mean 'encapsulation'
+- "Data hiding"
+- "Implementation details"
+
+ --------------------------------------------
+
+- Classes are fundamental in C++
+- Powerful feature: ability to hide data
 
 
+ 
