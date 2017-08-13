@@ -100,6 +100,19 @@ called the 'constructor'.
 
 Vocab
 - destructor = cleans up resources and returns them to the OS
+               cannot accept arguments
+               starts with a ~
+
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
