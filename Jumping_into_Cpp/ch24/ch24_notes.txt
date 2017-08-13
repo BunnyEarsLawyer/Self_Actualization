@@ -1,0 +1,21 @@
+The Class
+
+Bjarme Strousrup created C++, he wanted to reinforce the idea of creating structures that were defined by the functions they provided. 
+
+Instead of by the data used for the implementation.
+
+// Note: Much like how mathematicians define the number 1. It is by looking at how the number works with other number (E.g.1*any number = that number)
+
+A class is like a structure but it adds the ability what methods and adata are internal to the class.
+
+Vocab
+Class = like 'category'
+
+A class is no longer structured data, instead classes are ***defined by the methods that they provide as their interface***
+
+- They keep you from accidentally using implementation details.
+
+- The default is, nothing is available to anyone except the methods that are part of the class!
+
+
+
