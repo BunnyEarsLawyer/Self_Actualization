@@ -291,7 +291,35 @@ lhs = rhs;
 
 lhs.operator=(rhs);
 
+- Most of the time you won't need an assignment operator unless
+any of your members are pointers.
+
+- By default, C++ wil provide an assignemnt operator that does this:
+  1. copy each element by running *its* assignment operator or by copying bits
+
+- Rule of thumb: If you need to write your own destructor, you need to write your own
+  assignment operator.
+
 ----------------------------------
+The copy constructor:
+
+If you want to make an object that is *just like* another.
+
+E.g.
+LinkedList list_one;
+LinkedList list_two(list_one);
+
+- This is just a special case of the constructor.
+
+- It's like an assignment operator except instead of having an existing class
+  you have a completely uninitalized class.
+
+- This is good b/c it means you don't have to waste CPU time making a new object
+  only to overwrite its values.
+
+
+
+
 
 
 
