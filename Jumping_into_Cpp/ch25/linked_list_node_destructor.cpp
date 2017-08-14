@@ -3,11 +3,15 @@
 #include <iostream>
 
 //
-// Node structure 
+// Node Class 
 //
 
-struct LinkedListNode
+class LinkedListNode
 {
+
+public:
+
+    ~LinkedListNode();
 
     int val;
 
@@ -16,7 +20,25 @@ struct LinkedListNode
 };
 
 //
-// Class 
+// The advantage is that the destructor is called for you automatically.
+//
+LinkedListNode::~LinkedListNode()
+{
+
+//
+// Starts chain of recursive function calls
+// delete invokes the destructor for the object pointed to by p_next
+// (or does nothing if p_next is NULL)
+// until p_next is NULL
+// The base case is hidden inside the call to delete.
+//
+
+    delete p_next;
+
+}
+
+//
+// Linked List Class 
 //
 
 class LinkedList 
@@ -47,28 +69,13 @@ private:
 
 };
 
-LinkedList::LinkedList()
-    : _p_head(NULL) // start with a NULL
-{
-}
-
 LinkedList::~LinkedList()
 {
-    
-    LinkedListNode *p_itr = _p_head;
 
-    while(p_itr != NULL)
-    {
-
-        LinkedListNode *p_tmp = p_itr->p_next;
-
-        delete p_itr;
-
-        p_itr = p_tmp;
-
-    }
+    delete _p_head;
 
 }
+
 
 int main()
 {
@@ -76,7 +83,7 @@ int main()
     //
     // The constructor is called on the very line where you create the object.
     //
-    LinkedList a;
+    // LinkedList a;
 
-}  // Destructor is called at the end of the scope
+} 
 

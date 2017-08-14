@@ -105,17 +105,58 @@ Vocab
 
 --------------------------------------------------
 
+"The object is no longer needed" means 3 things:
+1) When you delete a pointer to an object
+2) When the object goes out of scope
+3) When the object belongs to a class whose destructor is being called 
+
+1- Destruction on Delete
+
+------------------------------------------------
+
+LinkedList *p_list = new LinkedList;
+
+// ~LinkedList (the destructor) is called on p_list
+
+delete p_list;
+
+------------------------------------------------
+
+2- Destruction when going out of scope
+
+------------------------------------------------
+
+if(1)
+{
+
+    LinkedList list;
+
+} // Here! Destructor is called here.
+
+
+void foo()
+{
+
+    LinkedList list;
+
+    // some code...
+    if( /*some conditions*/ )
+    {
+
+        return;
+
+    }
+
+}
+
+
+------------------------------------------------
+
+3- Destruction due to another destructor
+
+------------------------------------------------
 
 
 
-
-
-
-
-
-
-
-
-
-
+------------------------------------------------
 
