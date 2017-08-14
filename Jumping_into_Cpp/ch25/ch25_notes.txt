@@ -110,9 +110,10 @@ Vocab
 2) When the object goes out of scope
 3) When the object belongs to a class whose destructor is being called 
 
+------------------------------------------------
 1- Destruction on Delete
 
-------------------------------------------------
+E.g.
 
 LinkedList *p_list = new LinkedList;
 
@@ -124,7 +125,7 @@ delete p_list;
 
 2- Destruction when going out of scope
 
-------------------------------------------------
+E.g.
 
 if(1)
 {
@@ -147,16 +148,112 @@ void foo()
 
     }
 
-}
+} // Here! List's destructor is called here. Not at return. AH HA!
+
+Q: What if you have multiple destructors?
+
+- Fact: The destructors are run in the opposite order that the objects were 
+constructed.
+
+E.g.
+{
+
+    LinkedList a;
+
+    LinkedList b;
+
+} // b is destroyed first, then a.
 
 
 ------------------------------------------------
 
 3- Destruction due to another destructor
 
+If you have an object that is contained inside another class,
+the destructor for that object is called after running the destructor
+for the class.
+
+E.g.
+class NameAndEmail
+{
+
+private:
+
+    string _name;
+
+    string _email;
+
+};
+
+- The destructors for the _name and _email fields will be called
+  once the destructor for NameAndEmail finishes running.
+
+- Very convenient b/c you don't need to do anything special. 
+Just clean up pointers (call delete) or other things like handles and 
+network connections.
+
+- If you don't add a destructor to your class, the compiler will still make sure to run the destructor of any objects that are part of the class.
+
+Vocab
+- RAII = Resource allocation is initialization
+- handles
+
+The idea of using a constructor to initialize a class
+and a destructor to clean up memory and other resources is: RAII
+
+RAII means that in C++, you should create classes to handle resources, and that when you create classes the constructor should do all the init and the destructor should handle all cleanup.
+
+Don't make users handle clean up.
+
 ------------------------------------------------
 
+Copying classes
+
+- Let's say you make 2 objects.
+
+LinkedList list_one;
+
+LinkedList list_two;
+
+- If you want to do this:
+
+list_two = list_one;
+
+LInkedList list_three = list_two;
+
+- Then c++ does offer default 'assignment operator' and 'copy constructor'
+
+Vocab
+- 'assignment operator'
+- 'copy constructor'
+- 'shallow copy'
+
+- However, sometimes the compiler isn't smart enough to know what you want
+E.g.
+The compiler might make a 'shallow copy' of pointers. Both list_one and list_two will point to the same thing.
+
+This is 'shallow' b/c none of the pointed-to memory is copied, just the pointer itself.
+
+Althought 'shallow' copies can be ok, weird things can happen:
+
+E.g. If you try to free memory pointed at a linked_list 
+
+The destructor for list_two runs, deletes the list_two._p_head. (Remember, reverse order). 
+
+Then the destructor for list_one will run, but list_one._p_head was already deleted! 
+
+If you delete a pointer twice the program will crash!
 
 
-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
