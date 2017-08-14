@@ -317,7 +317,44 @@ LinkedList list_two(list_one);
 - This is good b/c it means you don't have to waste CPU time making a new object
   only to overwrite its values.
 
+- Rule of thumb: If you need an assignment operator, you need a copy constructor
 
+If you write this:
+
+LinkedList list_one;
+
+LinkedList list_two = list_one; // The copy constructor is called! Not the assignment operator.
+
+-----------------------------
+Vocab:
+List of COMPILER-GENERATED methods:
+- default constructor
+- default destructor
+- Assignment operator
+- Copy constructor
+
+-----------------------------
+Preventing copying entirely!
+
+- "Don't allow this object to be copied"  
+
+- Sometimes it's just wrong for an object to be copyable.
+
+E.g. the user's current spaceship
+
+- You can PREVENT copying by making a 'copy constructor' and an 'assignment operator' but
+  never actually implementing them
+
+- If you try to use them you will get a linker error w/out pointing to a line of code.
+  B/c you used an undefined function. Causes confusion.
+
+- You can also move the two methods to the 'private' section. This gives better error reporting.
+
+Summary: Choose one to make an 'assignment operator' and 'copy constructor'
+
+1. Use defaults
+2. Make your own
+3. Make your own but without implementation and put them in the private section.
 
 
 
