@@ -243,9 +243,55 @@ The destructor for list_two runs, deletes the list_two._p_head. (Remember, rever
 Then the destructor for list_one will run, but list_one._p_head was already deleted! 
 
 If you delete a pointer twice the program will crash!
+----------------------------------
 
+The 'assignment operator'
 
+E.g. list_two = list_one;
 
+New syntax, It's not too hairy:
+
+    //
+    // It's const b/c you should have no reason to 
+    // modify the right hand side
+    //
+LinkedList& operator ==  (LinkedList& lhs, const LinkedList& rhs);
+
+- Looks like a normal function (takes 2 args)
+  Arg1: non-const reference to a LinkedList
+  Arg2: const reference to a LinkedList
+
+-The only weird thing is the name of the function: operator=
+
+- It means you are defining what the '=' sign means instead of a function name
+
+Hence...
+
+lhs == rhs;
+
+Q: Why return a reference to a LinkedList instead of a LinkedList?
+
+A: So that you can chain together assignments
+
+linked_list = b = c;
+
+Note: If you add it to a class it will look like this:
+
+//
+// Inside a class, it takes only 1 argument b/c it is implied that
+// the second argument is the class itself
+//
+LinkedList& operator ==  (const LinkedList& rhs);
+
+// This is how you use it:
+lhs = rhs;
+
+// The 'operator=' function is called on the variable lhs as though 
+// you'd written:
+
+lhs.operator=(rhs);
+
+----------------------------------
 
 
 
