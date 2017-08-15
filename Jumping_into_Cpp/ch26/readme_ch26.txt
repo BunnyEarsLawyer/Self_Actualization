@@ -348,5 +348,17 @@ Foo's constructor
 -----------------------------------------
 Polymorphism and object destruction:
 
+- When the object is destroyed via an interface
+
+E.g. delete_via_interface.cpp
+
+- General rule: when you make any method in a superclass virtual,
+                you should make the superclass destructor virtual
+
+- Once you make a method virtual, you say that someone can pass around the class to methods that take an interface. 
+
+- Those methods can do anything they want! Including DELETING THE OBJECT! gasp.
+
+- Make sure the destructor is virtual to ensure the object is properly cleaned up too.
 
  
