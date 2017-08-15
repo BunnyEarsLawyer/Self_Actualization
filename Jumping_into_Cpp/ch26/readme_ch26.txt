@@ -361,4 +361,13 @@ E.g. delete_via_interface.cpp
 
 - Make sure the destructor is virtual to ensure the object is properly cleaned up too.
 
- 
+see _bad.cpp and _good.cpp
+
+----------------------------------------- 
+The 'slicing' problem:
+
+- Look at example
+
+
+
+
