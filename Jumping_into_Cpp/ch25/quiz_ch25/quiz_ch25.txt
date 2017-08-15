@@ -1,0 +1,7 @@
+Pregunta # | Respuestas  | Respuesta Correcta 
+1          |   .B        |  .B                   
+2          |   .C        |  .D                      
+3          |   .D        |  .D                      
+4          |   .D        |  .C // trick question!                   
+5          |   .D        |  .D                   
+6          |   .B        |  .D                   
