@@ -302,6 +302,7 @@ class Foo
 
 public:
     Foo() { cout << "Foo's constructor" << endl; }
+    ~Foo() { cout << "Foo's destructor" << endl; }
 
 };
 
@@ -311,6 +312,7 @@ class Bar
 
 public:
     Bar() { cout << "Bar's constructor" << endl; }
+    ~Bar() { cout << "Bar's destructor" << endl; }
 
 };
 
@@ -320,6 +322,31 @@ int main()
 }
 construction.cpp
 ----------------------------------------------------
+
+Output:
+//
+// The superclass constructor runs first to initialize all fields
+// This ensures that the subclass may use the fields in the superclass
+// All done for you by the compiler
+// Similarly, the destructor for the superclass will be called automatically
+//
+
+Foo's constructor 
+Bar's constructor
+
+Bar's destructor
+Foo's constructor
+
+- The constructor and destructor are called in opposite order 
+  b/c we ensure Bar's destructor can safely use methods inherited from Foo
+  b/c data those methods operate on is still in a valid usable state
+
+ I don't get it.
+
+- Sometimes you'll want to call a non-default destructor from the superclass.
+
+-----------------------------------------
+Polymorphism and object destruction:
 
 
  
