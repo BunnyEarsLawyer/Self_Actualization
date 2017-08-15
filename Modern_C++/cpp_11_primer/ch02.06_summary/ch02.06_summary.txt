@@ -1,0 +1,96 @@
+Vocab ch1
+- expression = smallest unit of computation. 1 or more operand
+- clog = ostream object tied to the standard error
+- buffer 
+
+Vocab
+
+- auto = deduces the type of a variable from its initializer
+
+- constexpr
+
+- nullptr  
+
+- alias declaration
+- base type
+- bind
+- compound type
+- const reference = colloquial sysnonym for reference to const
+- constant expression
+- default initialization
+  - Objects of built-in type are init to 0
+  - local scope are uninitialized and have undefined values
+- integral types
+- scope
+  - block = sequence of zero or more statements enclosed in curly braces
+- top-level const
+- type checking = the compiler checks that the way objects of a given type are used is consistent with the definition of that type
+- type specifier = the name of a type
+- preprocessor
+- void* = pointer type that can point to any nonconst type. (Cannot be dereferenced)
+- word = Large enough to hold an address E.g. 32 bit machine, 4byte word
+- low-level const
+
+
+Vocab ch03
+- range for
+
+- value initialization
+
+- compiler extension
+- container  = holds objects of a certain type
+  - E.g. vector is a container type
+- instantiation = compiler process
+- direct initialization
+- ptrdiff_t = machine dependent signed integral type defined in #include<cstddef>
+              - large enough to hold the difference b/t 2 pointers to the largest possible array
+
+- size_t = machine dependent unsigned integral type defined in #include<cstddef>
+           - large enough to hold the size of the largest possible array
+
+- off-the-end iterator
+
+Vocab ch12 pg 491
+
+- 'placement new' = a new form of 'new' lol
+                   - E.g. new(nothrow)
+- reference count = counts how many users share a common object
+                  - used by smart pointers to make sure it's safe to delte memory
+- smart pointer = Library type
+                - acts like a pointer but can be checked to see if it's safe to use
+                - deletes memory when appropriate
+- unique_ptr = smart pointer
+               - provides single ownership
+               - an object is deleted when the unique_ptr to that object is destroyed 
+               - unique_ptrs cannot be directly copied or assigned
+- shared_ptr = smart pointer 
+               - shared ownership of an object, 
+               - an object is deleted when the last shared pointer is destroyed 
+
+
+- allocator = class that allocates unconstructed memory
+- dangling pointer = pointer that points to memory that had an object but no longer does.
+                   - very hard to debug
+- delete = frees memory allocated by new
+
+- deleter = function passed to a smart pointer
+            use in place of delete!
+            to destroy the object to which the pointer is bound
+- dynamically allocated = object allocated in the 'free store'
+                          such objects exist until they are explicitly deleted or the program terminates
+- free store = heap
+
+- heap = memory pool available for programmers to hold dynamically allocated objects
+
+- new = allocates memory in the heap ('free store') 
+         - E.g. new T allocates and constructs the object of type T
+         - and return a pointer to that object
+         - E.g. new [n] T allocates n objects of type T 
+         - default allocation but you can provide optional initializers
+ 
+
+ 
+ 
+
+
+
