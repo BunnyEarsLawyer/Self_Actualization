@@ -366,8 +366,17 @@ see _bad.cpp and _good.cpp
 ----------------------------------------- 
 The 'slicing' problem:
 
-- Look at example
+- Look at example sample_slicing.cpp
 
+slicing problem = The default copy constructor is actually not copying everything!
 
+How to fix:
 
+- A way to let the compiler tell you there is a slicing problem:
+  - Declare the copy constructor for SuperClass private and don't implement it.
+
+//
+// copy constructor makes an object just like another
+//
+Object my_object_1(my_object_2); 
 
