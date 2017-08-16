@@ -379,4 +379,70 @@ How to fix:
 // copy constructor makes an object just like another
 //
 Object my_object_1(my_object_2); 
+----------------------------------------
+Sharing code with sub-classes:
+
+Vocab
+- protected
+
+public, private and, oh my!, protected
+
+Protected makes methods that can be called by the subclasses 
+but not external classes.
+
+Q: Why would you ever want this?
+
+A: Common implementation code. Specially among subclasses
+
+E.g. method that clears a region of the screen (clearRegion)
+
+- The purpose of inheritance **here** is not to share a common interface
+  the purpose is to allow access to common implementation code.
+
+but ... how do you prevent methods from being part of the interface for the class?
+
+- subclasses cannot access private fields or methods
+- subclasses can    access protected fields or methods
+- external classes cannot access neither private nor protected fields/methods
+
+Recommendation:
+- Don't use protected data
+- Protected methods are frequently useful, you may need to change it
+
+- Do use protected methods to provide access to the data you want accesse
+
+--------------------------------
+Class-wide data
+
+Vocab
+- static
+
+You can have an object (a class) store data. But what if you had several objects and wanted each to hold data specific to that object.
+
+E.g. Each object has it's own serial number.
+
+Q: How do you keep track of the next serial number you want to assign?
+
+A: Need a place to store "next serial number" at a class level.
+
+- E.g. Having each object have a 'serial number' would make it easy to debug from a log file.
+
+- You CAN create class-wide data with the keyword 'static'
+- static data is not part of any individual object, 
+  it is available to all objects of the class.
+- 
+
+IMPORTANT: Examples in the book outdated:
+
+------------------------
+static int a = 0; // granfathered
+
+// still useful, provides static *LINKAGE*
+// and static STORAGE DURATION
+------------------------
+static int X::a = 0; // @ non-compliant
+
+// confusing and illegal, is it a static LINKAGE?
+// or a static STORAGE DURATION?
+// or static MEMBERSHIP?
 
