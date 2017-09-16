@@ -1,0 +1,44 @@
+- hit the keyboard icon in the lower-right corner
+
+Compiled languages:
+- C
+- Clojure
+- C++
+- C#
+- Erland
+- F#
+- Go
+- Haskell
+- Java
+- Kotlin
+- Objective-C
+- OCaml
+- Rust
+- Scala
+- Swift 3
+- Vistual Basic
+
+
+Interpreted
+- CoffeeScript
+- Elixir
+- JavaScript
+- Perl
+- PHP
+- Python 2
+- Python 3
+- R
+- Ruby
+
+Data
+- Markdown
+- MySQL
+
+Compiler Support in C++11
+- gcc       38/39  - no threads, no regex
+- icc       27/39  - full STL support
+- msvc      24/39  - full STL support, no init. list
+- lmb xlc   17/39  - no threads, no regex
+- clang     37/39  - full STL support
+
+

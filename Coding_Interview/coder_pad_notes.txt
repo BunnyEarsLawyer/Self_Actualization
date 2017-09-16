@@ -1,0 +1,45 @@
+- hit the keyboard icon in the lower-right corner
+
+Compiled languages:
+- C
+- Clojure
+- C++
+- C#
+- Erland
+- F#
+- Go
+- Haskell
+- Java
+- Kotlin
+- Objective-C
+- OCaml
+- Rust
+- Scala
+- Swift 3
+- Vistual Basic
+
+
+Interpreted
+- CoffeeScript
+- Elixir
+- JavaScript
+- Perl
+- PHP
+- Python 2
+- Python 3
+- R
+- Ruby
+
+Data
+- Markdown
+- MySQL
+
+Compiler Support in C++11
+- gcc
+- icc
+- msvc
+- lmb xlc
+- clang
+
+// REVIEW
+https://stackoverflow.com/questions/2209224/vector-vs-list-in-stl

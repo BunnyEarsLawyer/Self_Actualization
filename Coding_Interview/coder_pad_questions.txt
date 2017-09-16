@@ -1,0 +1,58 @@
+List of questions
+
+- Merge 2 binary trees
+  - O(nlogn) vs. O(n) solution
+  - recursion 
+
+- FizzBuzz
+- Nth-to-last-linked list element
+- smallest change
+- number of ones in a binary
+- max stack
+- binary search tree
+- anagrams
+- string compression
+- kth most frequent string
+- split a linked list
+- tree level order
+- n stacks
+- permutations
+- palindromes
+- rotate bits
+- tree sum
+- zero sum subarray
+- merge arrays
+- balanced binary tree
+- gray number
+- stack from queues
+- longest common substring
+- print reversed linked list
+- sort stacks
+- longest consecutive branch
+- line intersection 
+- tree to linked list
+- clock angle
+- matrix search
+- swap variables
+- reverse stack
+- string deletion
+- lowest common ancestor
+- dedup linked list
+- merge k sorted arrays
+- big int modulus
+- random linked lists
+- square submatrix
+- shortest path
+- two missing numbers
+- randome binary tree
+- zero matrix
+- consecutive array
+- build order
+- list cycles
+- autocomplete
+- integer to roman numeral
+- find all duplicates
+- 0-1 knapsack
+- inorder traversal
+- priority queue
+- median of arrays  
