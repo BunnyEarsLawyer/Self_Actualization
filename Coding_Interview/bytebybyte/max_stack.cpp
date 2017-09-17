@@ -40,6 +40,7 @@ public:
     ~LinkedList(); 
     // adds a node
     void insert(int input);
+    void pop();
     int get_max_value();
     void update_max(LinkedListNode* const & p_new);
     void print_list();
@@ -63,6 +64,18 @@ LinkedList::~LinkedList()
         LinkedListNode *p_tmp = p_itr->p_next;
         delete p_itr;
         p_itr = p_tmp;
+    }
+}
+
+void LinkedList::pop()
+{
+    if(_p_head != nullptr)
+    {
+        LinkedListNode* p_temp;
+        p_temp = _p_head;
+        _p_head = _p_head->p_next;
+        delete p_temp;
+
     }
 }
 
@@ -134,6 +147,12 @@ int main()
     a.print_list();
 
     cout << " max val " <<  a.get_max_value() << endl;
+
+    a.pop();
+
+    cout << " after pop ";
+
+    a.print_list();
 
     // To execute please define "int main"
     auto words = {"Hellow,", "World!", "\n"};
