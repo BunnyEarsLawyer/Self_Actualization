@@ -6,6 +6,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <list>
 
 using namespace std;
 
@@ -40,39 +41,66 @@ bool is_anagram(string a, string b)
 int main()
 {
 
-    //auto words = {"ax,", "xa", "m", "\n"};
-    vector<string> words = {"ax", "xa", "m"};
-//    vector<string> words = {"1 ", "2 ", "3 "};
+// Options: list::remove() - cannot resize
+// Options: list::erase()  - deletes item in real time BUT pointers point to whatever is left 
 
-    vector<string> result;
+// Options: a.erase(std::remove(a.begin(), a.end(), 1), a.end()); - remove what matches 1
+//   remove/erase idiom: https://stackoverflow.com/questions/347441/erasing-elements-from-a-vector
 
-    //
-    // O-notation
-    // source: https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly
-    //
-    // remove/erase idiom: https://stackoverflow.com/questions/347441/erasing-elements-from-a-vector
+// O-notation
+// source: https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly
 
-    // I'll just save the non-anagrams
-    for ( vector<string>::iterator ii = words.begin(); ii != words.end(); ++ii )
+// Why did I not use a vector <string> ? B/c removing items from is a pain.
+// std::list is better b/c we can remove things. It's a LinkedList!
+// std::vector is basically an array!
+//        auto words = {"ax,", "xa", "m", "\n"};
+//        Also has options: vector::remove() and vector::erase()
+
+/*
+Because vectors use an array as their underlying storage, erasing elements in positions other than the vector end causes the container to relocate all the elements after the segment erased to their new positions. This is generally an inefficient operation compared to the one performed for the same operation by other kinds of sequence containers
+*/
+
+// Other alternatives:
+
+// auto it = std::find(myVec.begin(), myVec.end(), obj37);
+// if (it != myVec.end()) { myVec.erase(it); }
+
+// Boost solution:
+// boost::remove_if(words, bind(&Player::is_anagram, _1)<=0 );
+
+    list<string> words = {"1a", "x2", "a1", "z3", "3z", "zz"};
+
+    // Prints list 
+    cout << "Result\n";
+    for (const string& word : words)
     {
-        for ( vector<string>::iterator jj = words.begin(); jj != words.end(); ++jj )
+        cout << word << " ";
+    }
+ 
+    cout << endl;
+
+    // Iterate through each item
+    for ( list<string>::iterator ii = words.begin(); ii != words.end(); ++ii )
+    {
+        // E.g. ii = 1, jj = 1,2,3... then ii = 2, jj = 1,2,3...
+        for ( list<string>::iterator jj = words.begin(); jj != words.end(); ++jj )
         {
             // Don't compare against yourself only to others
-            // (This is not good life advice!)
+            cout << "where " << *ii << " " << *jj << endl; 
             if (&*ii != &*jj) 
             {
-//                cout << "ii " << *ii << endl;
-//                cout << "jj " << *jj << endl;
-                  cout << "where " << *ii << " " << *jj << endl; 
                   if( is_anagram(*ii, *jj) )
                   {
-                     cout << "remove " << *ii << " " << *jj << endl; 
-                     // Remove() does not really remove things.
-                     // b/c 'remove()' DOES return the container's new 'end()'
- //                    words.erase(remove(words.begin(), words.end(), *ii));
-//                     words.erase(
-//                     remove(words.begin(), words.end(), *jj);
+                     cout << "erase " << *ii << " " << *jj << endl; 
                      ii = words.erase(ii);
+                     jj = words.erase(jj);
+
+                     // Reset b/c the list has been removed!
+                     if(!words.empty())
+                     {
+                         ii = words.begin();
+                         jj = words.begin();
+                     }
                   } 
             }
             else
@@ -82,19 +110,13 @@ int main()
         }
     }
 
-    // Boost solution:
-    // boost::remove_if(words, bind(&Player::is_anagram, _1)<=0 );
-
-//    auto it = std::find(myVec.begin(), myVec.end(), obj37);
-//    if (it != myVec.end()) { myVec.erase(it); }
-
-
     // Prints final result
     cout << "Result\n";
     for (const string& word : words)
     {
         cout << word;
     }
+    cout << endl;
 
     return 0;
 
