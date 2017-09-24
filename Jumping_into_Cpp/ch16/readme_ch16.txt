@@ -314,22 +314,26 @@ Debugging stack overflows.
 Vocab
 - mutual recurssion
 
+E.g. factorial for even and odd, both should check for negt. numbers
 
- 
+Performance
+- Recursion requires making many function calls. Each function calls needs a stack frame and to pass arguments. This adds overhead.
 
+- In almost all cases, it's not significant on modern computers. If you have code that is very frequencly executed (millions or billions) you might start to notice the overhead.
 
+Taking stock of recursion
+- Recursion makes it possible to create algorithms that solve problems by breaking those problems into smaller versions.
 
+Recursion also provides more power than loops b/c they maintain a stack holding the current state of each recursive call, allowing the function to continue processing after getting the result of the sub-problem.
 
-  
+A recursive implementation of an algorithm will often feel more natural.
 
+Rules of thumb, use recursion when....
+1. The solution to a problem requires breaking down the problem into smaller versions of the same problem.
+2. The data structure you have is recursive (like a linked list)
 
-
-
-
-
-
-
-
-
+Rules of thumb, use loops when....
+1. It's obvious how to solve the problem with a simple loop.
+2. When you use a data structure that's indexed by a number, like an array.
 
 
