@@ -1,0 +1,32 @@
+Ch01 - Intro to dev environment
+Ch02 - Basics of C++
+Ch03 - interactiona nd working with variables
+Ch04 - If statements
+Ch05 - Loops
+Ch06 - Functions
+Ch07 - Switch case and enums
+Ch08 - Randomizing your programs
+Ch09 - What if you can't figure out what to do 
+Ch10 - Arrays
+Ch11 - Structures
+Ch12 - Intro to pointers
+Ch13 - Using pointers
+Ch14 - Dynamic memory allocation
+Ch15 - Intro to data structures with linked lists
+Ch16 - Recursion
+Ch17 - Binary Trees
+Ch18 - the standard template library (STL)
+Ch19 - More about strings
+Ch20 - Debugging with code blocks
+Ch21 - Breaking programs up to smaller pieces
+Ch22 - Intro to program design
+Ch23 - Hiding the rep. of structured data
+Ch24 - The class
+Ch25 - Lifecyle of a class
+Ch26 - Inheritance and polymorphism
+Ch27 - Namespaces
+Ch28 - File I/O
+Ch29 - Templates in C++ 
+Ch30 - Formatting output using iomanip
+Ch31 - Exceptions and error reporting
+Ch32 - Final thoughts

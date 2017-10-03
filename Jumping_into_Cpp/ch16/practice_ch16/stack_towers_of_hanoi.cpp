@@ -5,6 +5,9 @@
 
 // See alias (c++11)
 // Source: https://www.cs.cmu.edu/~cburch/survey/recurse/hanoiex.html
+
+// Front lobe research: https://en.wikipedia.org/wiki/Tower_of_Hanoi
+
 void print(std::stack<int> aa)
 {
     // Make a copy of the input and pop one by one
