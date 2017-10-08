@@ -4,6 +4,7 @@
 // How to debug: $gdb ./$MY_BINARY_NAME
 // gcc?
 #include <iostream>
+#include <stdlib.h> // need abs()
 using namespace std;
 
 /*
@@ -56,6 +57,8 @@ private:
     node* insert(node *p_tree, int key);
     void display(node* p_tree);
     int count(node * p_tree);
+    bool check_if_balanced(node * p_tree);
+    int return_longest_depth(node * p_tree);
     node* _p_tree_top;
 };
 
@@ -217,6 +220,78 @@ node* remove (node* p_tree, int key)
     }
     
 }
+bool BinaryTree::is_balanced()
+{
+    return check_if_balanced(_p_tree_top);
+}
+bool BinaryTree::check_if_balanced(node * p_tree)
+{
+    
+    int right_depth = 0; 
+    int left_depth = 0; 
+    if(p_tree == nullptr)
+    {
+        return false;
+    }
+
+    // Get depth of the children
+    if(p_tree->p_left != nullptr)
+    {
+        left_depth += return_longest_depth(p_tree->p_left);
+    }
+    if(p_tree->p_right != nullptr)
+    {
+        right_depth += return_longest_depth(p_tree->p_right);
+    }
+
+    // If the difference in depths is 1 or less, it's balanced 
+    int difference = right_depth - left_depth;
+
+    if(abs(difference) <= 1)
+    { 
+        return true;
+    } 
+    else
+    {
+        return false;
+    }  
+}
+
+// returns the difference in depths between 2 children 
+int BinaryTree::return_longest_depth(node * p_tree)
+{
+    int right_depth = 0; 
+    int left_depth = 0; 
+
+    if(p_tree == nullptr)
+    {
+        return 0;
+    }
+    if(p_tree->p_left == nullptr && p_tree->p_right == nullptr)
+    {
+        return 1;
+    }
+    if(p_tree->p_left != nullptr)
+    {
+        left_depth += return_longest_depth(p_tree->p_left);
+    }
+    if(p_tree->p_right != nullptr)
+    {
+        right_depth += return_longest_depth(p_tree->p_right);
+    }
+
+    if(right_depth > left_depth)
+    {
+        return right_depth;
+    } 
+    else
+    {
+        return left_depth;
+    } 
+
+}
+
+
 void BinaryTree::show()
 {
     display(_p_tree_top);
@@ -277,7 +352,7 @@ void BinaryTree::display(node* p_tree)
 
 int main()
 {
-    auto numbers = {10,2,7,4,5}; 
+    auto numbers = {10,2,1,4,5}; 
 
     BinaryTree redwood;
 
@@ -294,5 +369,9 @@ int main()
 
     cout << "There are " << redwood.number_of_nodes()  << " nodes in the tree \n";
 
+    if(redwood.is_balanced())
+    {
+         cout << "tree is balanced \n";
+    }
     return 0;
 }
