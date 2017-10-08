@@ -18,6 +18,23 @@ void print(std::stack<int> aa)
 
     std::cout << "\n";
 }
+// call Tree
+/*
+A. source
+B. destiny
+
+3. move_pyramid(1,A,C,B) // MOVED 1 from A to C, return.
+2. move_pyramid(2,A,C,B) //
+1. move_pyramid(3,A,B,C)
+
+Return
+2. move_pyramid(2,A,C,B) // MOVE 2, from A to C, return 
+
+
+*/
+
+
+
 void move_pyramid(int disk_val, std::stack<int> & source, 
                                 std::stack<int> & destiny, 
                                 std::stack<int> & extra)
@@ -25,31 +42,35 @@ void move_pyramid(int disk_val, std::stack<int> & source,
 
     if(disk_val == 1)
     {
-        std::cout << "Value front :" << disk_val << std::endl;
+        std::cout << "Value is smallest:" << disk_val << std::endl;
+
         if(!source.empty())
         {
             destiny.push(disk_val);
             source.pop();
         }
+
+        std::cout << "Moved " << disk_val << std::endl;
     }
     else 
     {
 
+        // Move from source to the extra
         move_pyramid(disk_val - 1, source, extra, destiny);
+
+        // Move one from source to destiny
         if(!source.empty())
         {
             destiny.push(disk_val);
             source.pop();
         }
+
+        std::cout << "Moved " << disk_val << std::endl;
+
+        // Move from extra to the destiny 
         move_pyramid(disk_val - 1, extra, destiny, source);
 
     }
-    std::cout << "src ";
-    print(source);
-    std::cout << "des ";
-    print(destiny);
-    std::cout << "ext ";
-    print(extra);
 
 }
 
