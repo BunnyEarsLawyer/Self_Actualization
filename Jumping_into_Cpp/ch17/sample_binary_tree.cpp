@@ -13,18 +13,40 @@ struct node
     node *p_right;
 };
 
-/*
 class BinaryTree
 {
 public:
     BinaryTree(); 
     ~BinaryTree(); 
-    node* insert (node *p_tree, int key);
+    void add(int key);
+    void show();
+    void destroy_tree(node *p_tree);
 private:
-    node _p_tree_top;
+    node* insert(node *p_tree, int key);
+    void display(node* p_tree);
+    node* _p_tree_top;
 };
-*/
-node* insert( node *p_tree, int key)
+
+BinaryTree::BinaryTree()
+{
+   // Create an empty tree.
+   _p_tree_top = nullptr;    
+}
+
+BinaryTree::~BinaryTree()
+{
+   // Delete the tree.
+   destroy_tree(_p_tree_top);
+}
+
+void BinaryTree::add(int key)
+{
+   _p_tree_top = insert(_p_tree_top, key);
+
+}
+
+
+node* BinaryTree::insert( node *p_tree, int key)
 {
 
     //
@@ -86,13 +108,13 @@ node *search (node *p_tree, int key)
     }
 }
 
-void destroy_tree(node *p_tree)
+void BinaryTree::destroy_tree(node *p_tree)
 {
     if(p_tree != nullptr)
     {
          destroy_tree(p_tree->p_left);
          destroy_tree(p_tree->p_right);
-         cout << "deleting node:" << p_tree->key_value;
+         cout << "deleting node:" << p_tree->key_value << endl;
          delete p_tree; 
     }
 }
@@ -163,20 +185,50 @@ node* remove (node* p_tree, int key)
     }
     
 }
+void BinaryTree::show()
+{
+    display(_p_tree_top);
+}
 
+// Option: sorter order
+void BinaryTree::display(node* p_tree)
+{
+    // base case, no tree
+    if(p_tree == nullptr)
+    {
+         cout << "empty";
+    } 
+    // display left tree
+    else if( p_tree->p_left != nullptr)
+    {
+         display(p_tree->p_left); 
+    } 
+    // display right tree
+    else if( p_tree->p_right != nullptr)
+    {
+         display(p_tree->p_right); 
+    } 
+    // display parent node
+    cout << p_tree->key_value << endl;  
+
+}
 
 int main()
 {
-    node a;
-    // To execute please define "int main"
-    auto words = {"Hellow,", "World!", "\n"};
+    auto numbers = {1,2,3,4,5}; 
+
+    BinaryTree redwood;
 
     // O-notation
     // source: https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly
     //
-    for (const string& word : words)
+    for (const int& nn : numbers)
     {
-        cout << word;
+        redwood.add(nn);
     }
+    cout << endl;
+
+    redwood.show();
+
     return 0;
 }
