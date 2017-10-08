@@ -19,9 +19,11 @@ public:
     BinaryTree(); 
     ~BinaryTree(); 
     void add(int key);
+    void show();
     void destroy_tree(node *p_tree);
 private:
     node* insert(node *p_tree, int key);
+    void display(node* p_tree);
     node* _p_tree_top;
 };
 
@@ -112,7 +114,7 @@ void BinaryTree::destroy_tree(node *p_tree)
     {
          destroy_tree(p_tree->p_left);
          destroy_tree(p_tree->p_right);
-         cout << "deleting node:" << p_tree->key_value;
+         cout << "deleting node:" << p_tree->key_value << endl;
          delete p_tree; 
     }
 }
@@ -183,18 +185,18 @@ node* remove (node* p_tree, int key)
     }
     
 }
+void BinaryTree::show()
+{
+    display(_p_tree_top);
+}
+
 // Option: sorter order
-void display(node* p_tree)
+void BinaryTree::display(node* p_tree)
 {
     // base case, no tree
     if(p_tree == nullptr)
     {
          cout << "empty";
-    } 
-    // display value if there are no more children to explore 
-    if( p_tree->p_right == nullptr && p_tree->p_left == nullptr)
-    {
-         cout << p_tree->key_value;  
     } 
     // display left tree
     else if( p_tree->p_left != nullptr)
@@ -207,7 +209,7 @@ void display(node* p_tree)
          display(p_tree->p_right); 
     } 
     // display parent node
-    cout << p_tree->key_value;  
+    cout << p_tree->key_value << endl;  
 
 }
 
@@ -216,28 +218,17 @@ int main()
     auto numbers = {1,2,3,4,5}; 
 
     BinaryTree redwood;
-    redwood.add(10);
-/*
-    redwood.insert(redwood, 10);
-    node* insert (node *p_tree, int key);
-    a.key_value = 0;
 
-    node *p_a = &a;
-
-    a.insert(p_a, 10);
-    a.insert(p_a, 7);
-
-    display(p_a);
-*/
     // O-notation
     // source: https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly
     //
     for (const int& nn : numbers)
     {
-//        a.insert(p_a, nn);
-        cout << nn;
+        redwood.add(nn);
     }
+    cout << endl;
 
+    redwood.show();
 
     return 0;
 }
