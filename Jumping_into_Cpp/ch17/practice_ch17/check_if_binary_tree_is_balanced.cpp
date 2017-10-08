@@ -229,6 +229,7 @@ bool BinaryTree::check_if_balanced(node * p_tree)
     
     int right_depth = 0; 
     int left_depth = 0; 
+
     if(p_tree == nullptr)
     {
         return false;
@@ -246,7 +247,9 @@ bool BinaryTree::check_if_balanced(node * p_tree)
 
     // If the difference in depths is 1 or less, it's balanced 
     int difference = right_depth - left_depth;
-
+    cout << "Node with " << p_tree->key_value << " value\n";  
+    cout << "     has " << right_depth << " right children\n";  
+    cout << "     and " << left_depth << " left children\n";  
     if(abs(difference) <= 1)
     { 
         return true;
@@ -279,6 +282,9 @@ int BinaryTree::return_longest_depth(node * p_tree)
     {
         right_depth += return_longest_depth(p_tree->p_right);
     }
+    cout << "Node with " << p_tree->key_value << " value\n";  
+    cout << "Node has " << right_depth << " right children\n";  
+    cout << "     and " << left_depth << " left children\n";  
 
     if(right_depth > left_depth)
     {
@@ -352,7 +358,7 @@ void BinaryTree::display(node* p_tree)
 
 int main()
 {
-    auto numbers = {10,2,1,4,5}; 
+    auto numbers = {1,2,3,4,5}; 
 
     BinaryTree redwood;
 
