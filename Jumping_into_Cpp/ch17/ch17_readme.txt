@@ -346,6 +346,8 @@ Vocab
 
 - hash = an algorithm that turns a string of text into another string of text (or into a number)
 
+- hash table = another way to implement maps (other than a binary tree)
+
 ---------------------------------------------------
 
 The cost of building trees and maps
