@@ -344,14 +344,19 @@ void BinaryTree::display(node* p_tree)
     // display left tree
     else if( p_tree->p_left != nullptr)
     {
+         cout << " L: \n";
+         cout << p_tree->p_right->key_value << endl;  
          display(p_tree->p_left); 
     } 
     // display right tree
     else if( p_tree->p_right != nullptr)
     {
+         cout << " R: \n";
+         cout << p_tree->p_right->key_value << endl;  
          display(p_tree->p_right); 
     } 
     // display parent node
+    cout << " P: \n";
     cout << p_tree->key_value << endl;  
 
 }
