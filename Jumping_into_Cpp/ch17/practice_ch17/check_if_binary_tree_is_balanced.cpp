@@ -70,6 +70,7 @@ private:
     int count(node * p_tree);
     int check_if_balanced(node * p_tree);
     int return_longest_depth(node * p_tree);
+    int return_shortest_depth(node * p_tree);
     node* _p_tree_top;
 };
 
@@ -233,9 +234,15 @@ node* remove (node* p_tree, int key)
 }
 bool BinaryTree::is_balanced()
 {
-    int difference = check_if_balanced(_p_tree_top);
-    cout << "Difference:" << difference << endl;
+    int longest = return_longest_depth(_p_tree_top);
+    int shortest = return_shortest_depth(_p_tree_top);
+  
+    int difference = longest - shortest;
 
+    cout << "Difference:" << difference << " long "  << longest << " short " << shortest << endl;
+
+    // Instead, could return 0, -1, or the actual difference.
+    // A balanced tree acceptable range is -1,0,+1
     if(abs(difference) < 2)
     {
         return true; 
@@ -247,40 +254,47 @@ bool BinaryTree::is_balanced()
 
 }
 
-// Balanced Tree = 
-int BinaryTree::check_if_balanced(node * p_tree)
+int BinaryTree::return_shortest_depth(node * p_tree)
 {
-    
     int right_depth = 0; 
     int left_depth = 0; 
 
+    cout << "Node with value " << p_tree->key_value << " ...\n";  
+
     if(p_tree == nullptr)
     {
-        return false;
+        return 0;
     }
-
-    // Get depth of the children
+    if(p_tree->p_left == nullptr && p_tree->p_right == nullptr)
+    {
+        return 1;
+    }
     if(p_tree->p_left != nullptr)
     {
-        left_depth += return_longest_depth(p_tree->p_left);
+        cout << "     L child has value " << p_tree->p_left->key_value << " \n";  
+        left_depth++;
+        left_depth += return_shortest_depth(p_tree->p_left);
     }
     if(p_tree->p_right != nullptr)
     {
-        right_depth += return_longest_depth(p_tree->p_right);
+        cout << "     R child has value " << p_tree->p_right->key_value << " \n";  
+        right_depth++;
+        right_depth += return_shortest_depth(p_tree->p_right);
     }
 
-    // If the difference in depths is 1 or less, it's balanced 
-    int difference = right_depth - left_depth;
-    cout << "Node with " << p_tree->key_value << " value\n";  
-    cout << "     has " << right_depth << " right children\n";  
-    cout << "     and " << left_depth << " left children\n";  
+     cout << p_tree->key_value <<  "     has " << left_depth << " left children\n";  
+     cout << p_tree->key_value <<  "     has " << right_depth << " right children\n";  
 
-    // Instead, could return 0, -1, or the actual difference.
-    // A balanced tree acceptable range is -1,0,+1
-    return difference;
+    // Return whichever is lowest 
+    if(right_depth < left_depth)
+    {
+        return right_depth;
+    }
+    else
+    {
+        return left_depth;
+    }
 }
-
-// returns the difference in depths between 2 children 
 int BinaryTree::return_longest_depth(node * p_tree)
 {
     int right_depth = 0; 
@@ -296,25 +310,24 @@ int BinaryTree::return_longest_depth(node * p_tree)
     }
     if(p_tree->p_left != nullptr)
     {
+        left_depth++;
         left_depth += return_longest_depth(p_tree->p_left);
     }
     if(p_tree->p_right != nullptr)
     {
+        right_depth++; 
         right_depth += return_longest_depth(p_tree->p_right);
     }
-    cout << "Node with " << p_tree->key_value << " value\n";  
-    cout << "Node has " << right_depth << " right children\n";  
-    cout << "     and " << left_depth << " left children\n";  
 
+    // Return whichever is highest
     if(right_depth > left_depth)
     {
         return right_depth;
-    } 
+    }
     else
     {
         return left_depth;
-    } 
-
+    }
 }
 
 
@@ -375,16 +388,14 @@ void BinaryTree::display(node* p_tree)
          cout << p_tree->p_right->key_value << endl;  
          display(p_tree->p_right); 
     } 
-    // display parent node
-//   cout << " P: \n";
-//    cout << p_tree->key_value << endl;  
+
 
 }
 
 int main()
 {
-    //auto numbers = {3,2,1,4,5}; 
-    auto numbers = {3,2,1}; 
+//    auto numbers = {3,5,1};    // Balanced
+    auto numbers = {1,2,3,4};  // Unbalanced
     //
     // Because the order of inseration is in order, the nodes just grow the right
     // leading a Linked List! This defeats the purpose of the BST!
