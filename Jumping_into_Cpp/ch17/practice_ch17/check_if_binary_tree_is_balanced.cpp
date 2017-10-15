@@ -265,7 +265,7 @@ int BinaryTree::return_shortest_depth(node * p_tree)
     {
         return 0;
     }
-    if(p_tree->p_left == nullptr | p_tree->p_right == nullptr)
+    if((p_tree->p_left == nullptr) | (p_tree->p_right == nullptr))
     {
         cout << "     has not children \n";
         return 0;
@@ -283,8 +283,8 @@ int BinaryTree::return_shortest_depth(node * p_tree)
         right_depth += return_shortest_depth(p_tree->p_right);
     }
 
-     cout << p_tree->key_value <<  "     has " << left_depth << " left children\n";  
-     cout << p_tree->key_value <<  "     has " << right_depth << " right children\n";  
+    cout << p_tree->key_value <<  "     has " << left_depth << " left children\n";  
+    cout << p_tree->key_value <<  "     has " << right_depth << " right children\n";  
 
     // Return whichever is lowest 
     if(right_depth < left_depth)
@@ -296,6 +296,7 @@ int BinaryTree::return_shortest_depth(node * p_tree)
         return left_depth;
     }
 }
+// WIP
 int BinaryTree::return_longest_depth(node * p_tree)
 {
     int right_depth = 0; 
