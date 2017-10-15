@@ -24,6 +24,17 @@ Balanced tree
             /
            G 
 
+Balanced tree
+
+            A        // Still balanced, no matter what size of sub-trees
+           /  \
+          B    C    
+         /    / \
+        D    E   F  
+            / \ / \
+           G  HI  J
+
+
 Unbalanced tree
             A       // A children. Differnce is 1
            /  \
@@ -98,7 +109,7 @@ node* BinaryTree::insert( node *p_tree, int key)
     }
     //
     // decide whether to insert into the left subtree or
-    // the tight subtree depending on the value of the 
+    // the right subtree depending on the value of the 
     // node
     //
     if( key < p_tree->key_value)
@@ -224,6 +235,8 @@ bool BinaryTree::is_balanced()
 {
     return check_if_balanced(_p_tree_top);
 }
+
+// Balanced Tree = 
 bool BinaryTree::check_if_balanced(node * p_tree)
 {
     
@@ -345,7 +358,7 @@ void BinaryTree::display(node* p_tree)
     else if( p_tree->p_left != nullptr)
     {
          cout << " L: \n";
-         cout << p_tree->p_right->key_value << endl;  
+         cout << p_tree->p_left->key_value << endl;  
          display(p_tree->p_left); 
     } 
     // display right tree
@@ -363,8 +376,12 @@ void BinaryTree::display(node* p_tree)
 
 int main()
 {
-    auto numbers = {1,2,3,4,5}; 
-
+    //auto numbers = {3,2,1,4,5}; 
+    auto numbers = {3,2,1}; 
+    //
+    // Because the order of inseration is in order, the nodes just grow the right
+    // leading a Linked List! This defeats the purpose of the BST!
+    // 
     BinaryTree redwood;
 
     // O-notation
