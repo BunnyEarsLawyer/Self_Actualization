@@ -265,9 +265,10 @@ int BinaryTree::return_shortest_depth(node * p_tree)
     {
         return 0;
     }
-    if(p_tree->p_left == nullptr && p_tree->p_right == nullptr)
+    if(p_tree->p_left == nullptr | p_tree->p_right == nullptr)
     {
-        return 1;
+        cout << "     has not children \n";
+        return 0;
     }
     if(p_tree->p_left != nullptr)
     {
@@ -304,9 +305,9 @@ int BinaryTree::return_longest_depth(node * p_tree)
     {
         return 0;
     }
-    if(p_tree->p_left == nullptr && p_tree->p_right == nullptr)
+    if(p_tree->p_left == nullptr | p_tree->p_right == nullptr)
     {
-        return 1;
+        return 0;
     }
     if(p_tree->p_left != nullptr)
     {
@@ -338,9 +339,11 @@ void BinaryTree::show()
 
 int BinaryTree::number_of_nodes()
 {
-     return count(_p_tree_top);
+     // Adding 1 because count does not count the top head!
+     int sz = count(_p_tree_top) + 1;
+     return sz;
 }
-
+// WIP: counts how many children the tree has
 int BinaryTree::count(node * p_tree)
 {
     int curr_count = 0;
@@ -349,21 +352,24 @@ int BinaryTree::count(node * p_tree)
     {
         return 0;
     }
+    else if (p_tree->p_left == nullptr && p_tree->p_right == nullptr) 
+    {
+        return 0;
+    }
     // count left tree, rep. by p_left
     else if(p_tree->p_left != nullptr)
     {
+        curr_count = curr_count + 1;
         curr_count += count(p_tree->p_left);
     }
     // count right tree
     else if(p_tree->p_right != nullptr)
     {
+        curr_count = curr_count + 1;
         curr_count += count(p_tree->p_right);
     }
-    // count the parent
-    curr_count += 1;
-
+    cout << " for node " << p_tree->key_value << "curr_count "<< curr_count<< endl; 
     return curr_count;
-
 }
 
 // Option: sorted order
@@ -394,8 +400,8 @@ void BinaryTree::display(node* p_tree)
 
 int main()
 {
-//    auto numbers = {3,5,1};    // Balanced
-    auto numbers = {1,2,3,4};  // Unbalanced
+    auto numbers = {3,5,1};    // Balanced
+//    auto numbers = {1,2,3,4};  // Unbalanced
     //
     // Because the order of inseration is in order, the nodes just grow the right
     // leading a Linked List! This defeats the purpose of the BST!
@@ -416,7 +422,12 @@ int main()
     cout << "There are " << redwood.number_of_nodes()  << " nodes in the tree \n";
 
     if(redwood.is_balanced())
+    {
         cout << "The tree is balanced" << endl;
-
+    }
+    else
+    {
+        cout << "The tree is not balanced" << endl;
+    }
     return 0;
 }
