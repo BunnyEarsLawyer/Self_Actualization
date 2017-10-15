@@ -24,7 +24,7 @@ Balanced tree
             /
            G 
 
-Balanced tree
+Balanced tree? No, but other companies might consider this balanced.
 
             A        // Still balanced, no matter what size of sub-trees
            /  \
@@ -68,7 +68,7 @@ private:
     node* insert(node *p_tree, int key);
     void display(node* p_tree);
     int count(node * p_tree);
-    bool check_if_balanced(node * p_tree);
+    int check_if_balanced(node * p_tree);
     int return_longest_depth(node * p_tree);
     node* _p_tree_top;
 };
@@ -233,11 +233,22 @@ node* remove (node* p_tree, int key)
 }
 bool BinaryTree::is_balanced()
 {
-    return check_if_balanced(_p_tree_top);
+    int difference = check_if_balanced(_p_tree_top);
+    cout << "Difference:" << difference << endl;
+
+    if(abs(difference) < 2)
+    {
+        return true; 
+    }
+    else
+    {
+        return false; 
+    }
+
 }
 
 // Balanced Tree = 
-bool BinaryTree::check_if_balanced(node * p_tree)
+int BinaryTree::check_if_balanced(node * p_tree)
 {
     
     int right_depth = 0; 
@@ -263,14 +274,10 @@ bool BinaryTree::check_if_balanced(node * p_tree)
     cout << "Node with " << p_tree->key_value << " value\n";  
     cout << "     has " << right_depth << " right children\n";  
     cout << "     and " << left_depth << " left children\n";  
-    if(abs(difference) <= 1)
-    { 
-        return true;
-    } 
-    else
-    {
-        return false;
-    }  
+
+    // Instead, could return 0, -1, or the actual difference.
+    // A balanced tree acceptable range is -1,0,+1
+    return difference;
 }
 
 // returns the difference in depths between 2 children 
@@ -346,7 +353,7 @@ int BinaryTree::count(node * p_tree)
 
 }
 
-// Option: sorter order
+// Option: sorted order
 void BinaryTree::display(node* p_tree)
 {
     // base case, no tree
@@ -369,8 +376,8 @@ void BinaryTree::display(node* p_tree)
          display(p_tree->p_right); 
     } 
     // display parent node
-    cout << " P: \n";
-    cout << p_tree->key_value << endl;  
+//   cout << " P: \n";
+//    cout << p_tree->key_value << endl;  
 
 }
 
@@ -398,8 +405,7 @@ int main()
     cout << "There are " << redwood.number_of_nodes()  << " nodes in the tree \n";
 
     if(redwood.is_balanced())
-    {
-         cout << "tree is balanced \n";
-    }
+        cout << "The tree is balanced" << endl;
+
     return 0;
 }
