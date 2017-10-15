@@ -341,7 +341,11 @@ void BinaryTree::show()
 int BinaryTree::number_of_nodes()
 {
      // Adding 1 because count does not count the top head!
+     cout << "tree " << _p_tree_top->key_value << " has " 
+          << count(_p_tree_top) << " children \n" << endl;
+
      int sz = count(_p_tree_top) + 1;
+
      return sz;
 }
 // WIP: counts how many children the tree has
@@ -358,13 +362,13 @@ int BinaryTree::count(node * p_tree)
         return 0;
     }
     // count left tree, rep. by p_left
-    else if(p_tree->p_left != nullptr)
+    if(p_tree->p_left != nullptr)
     {
         curr_count = curr_count + 1;
         curr_count += count(p_tree->p_left);
     }
     // count right tree
-    else if(p_tree->p_right != nullptr)
+    if(p_tree->p_right != nullptr)
     {
         curr_count = curr_count + 1;
         curr_count += count(p_tree->p_right);
@@ -382,14 +386,14 @@ void BinaryTree::display(node* p_tree)
          cout << "empty";
     } 
     // display left tree
-    else if( p_tree->p_left != nullptr)
+    if( p_tree->p_left != nullptr)
     {
          cout << " L: \n";
          cout << p_tree->p_left->key_value << endl;  
          display(p_tree->p_left); 
     } 
     // display right tree
-    else if( p_tree->p_right != nullptr)
+    if( p_tree->p_right != nullptr)
     {
          cout << " R: \n";
          cout << p_tree->p_right->key_value << endl;  
