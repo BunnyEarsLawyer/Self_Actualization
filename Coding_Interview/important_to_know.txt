@@ -1,0 +1,8 @@
+
+
+- Dynamic Programming
+- Heaps
+- Hash Tables
+
+WHy do we use hashcode in a hashtable instead of an index?
+Long story short, you can check if a key is already stored VERY quickly, and equally rapidly store a new mapping. Otherwise you'd have to keep a sorted list of keys, which is much slower to store and retrieve mappings from.
