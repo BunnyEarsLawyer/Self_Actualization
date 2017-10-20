@@ -1,0 +1,45 @@
+P1.3 URLify
+
+Write a method to replace all spaces in a string with '%20' 
+
+You may assume that the string has sufficient space at the end to hold the additional characters. 
+And that you are given the 'true' lenght of the string. 
+
+If you implement in Java, use a char array so you can perform this operation in place.
+
+E.g. "Mr John Smith    ", 13
+     "Mr%20John%20Smith", 13
+
+Analysis:
+- Am I guaranteed to have at least one white space in the string?
+- What is the encoding of the string? 128 ASCII or UTF-8/32 Unicode?
+- Would I be given the location of the white spaces before hand, that is maybe as a list of indeces?
+- What if there are 2 white spaces? Should I place the same thing twice?
+- How large are the strings going to be? Is there a limit?
+
+If there are no white spaces, or if it's all white spaces. If I have repeated white spaces.
+
+What if there are those special characters and white spaces? Am I supposed to keep a copy of the original string in case I need to go back?
+
+Assuming: 
+ASCII, all lower-case, no repeated white space, the special characters %20 could show up.
+
+
+Plan of attack:
+
+1. Iterate through and replace any instance of space with the special characters "blah"
+
+Inserting would mean I need to shift characters!
+
+I want to avoid shifting as much as possible. I would prefer to split the string where the spaces occur and then concatonate all the tiny springs.
+
+I could also keep track of where the spaces are in case I want to go back. but that's not a requirement.
+
+E.g. "x xxxxxx......xxxx   "  I would have to shift so many characters to insert only 1. 
+
+Worst case " xxxxxxxxxxx  " Even thought the replacement is at the beginning, I would have to shift all those characters.
+
+I'm thinking if the string was in a linked list we couldn't have to worry about shifting.
+
+I think I want to shift things by 2 characters to make space for the replacement. Then look for "   " and replace it witht he three characters.
+
