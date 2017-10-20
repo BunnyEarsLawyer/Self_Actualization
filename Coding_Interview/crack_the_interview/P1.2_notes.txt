@@ -1,0 +1,76 @@
+P1.2 Given 2 strings, write a method to decide if one is a permutation of the other.
+
+- Are these strings going to be very large? Yes. Any size.
+- Do they have repetitions? Yes.
+- Do the strings have any special characters?  No. just lowercase a-z
+- What kind of string, Unicode or ASCII? ASCII.
+
+
+Well, as a first step I would check their lenghts. If they differ in lenght then they would not be permutation of another. Unless you find it acceptable for the permutation to be on characters and have repetitions.
+
+For example, baa and ab could be considered permutations if you remove repetitions.
+
+car rac  yes 
+axx ytw  no
+
+In handling repeteating characters what if I had.
+
+aapom pomaa 
+
+Another approach I think I would take is make a hash table.
+Where the possible characters are counted.
+
+So let's say the set of allowable characters was [a,p,o,m]
+
+Then string A would have a has table of character counts 
+[2,1,1,1] This way I can handle the repeating characters. Same for the other one.
+
+Another thing is to sort both strings and then start 1 loop that compares once.
+
+This is what I mean:
+
+aapom and pomaa -> aapom for both.
+
+    for idx in len(word) // Assume both each lenght and sorted 
+       string1(idx) == string2(idx)
+
+aapob and pozaa
+
+aabop
+aapoz
+
+Nm. wouldn't be a good idea but wait! Maybe it is. This way I don't need to go until the end.
+
+// E.g. aapom and opmaa
+def is_permutation(aa, bb):
+    if(len(aa) != len(bb):
+        return False
+
+    // aamop -> O(n*log(n))
+    my_aa = aa.sorted
+    my_bb = bb.sorted
+
+    // aamop
+    // aamoz -> O(n)
+    for my_idx in range(len(my_aa)):
+        if(my_aa[my_idx] != my_bb[my_idx])
+            return False
+
+    return True
+ 
+Post analysis.
+- My code could shave out repetitions to make it more efficient,
+  for example, to limit to 128 characters.
+
+  One worst case I can think of is that the two words are very larg and they are ordered alphabetically and have many repetitions but the difference is at the very end. Ex:
+
+  aaaa...bbb....yy..xz
+  aaaa...bbb....yy..xx
+  
+  In time, the worst is still O(n) b/c we iterate.
+ 
+Oh! Are we allowed to edit the string? Because I would shave off repetitions as we are sorting things.
+
+  Hence my worst case reduced to 128 characters. This would reduce the space complexity.
+
+
