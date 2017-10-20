@@ -405,8 +405,9 @@ void BinaryTree::display(node* p_tree)
 
 int main()
 {
-    auto numbers = {3,5,1};    // Balanced
+//    auto numbers = {3,5,1};    // Balanced
 //    auto numbers = {1,2,3,4};  // Unbalanced
+    auto numbers = {10,5,1,11,7};  // Unbalanced
     //
     // Because the order of inseration is in order, the nodes just grow the right
     // leading a Linked List! This defeats the purpose of the BST!

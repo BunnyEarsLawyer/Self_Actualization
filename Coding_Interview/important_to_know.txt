@@ -1,0 +1,53 @@
+
+
+
+
+- Hash Tables
+  - Array of Linked Lists
+  - BST
+- Dynamically resizable array (ArrayList) in any lang.
+- Dynamic Programming
+- Heaps
+- Maps
+-------------------------------------------------------------
+Hash Tables:
+WHy do we use hashcode in a hashtable instead of an index?
+Efficient lookup.
+Long story short, you can check if a key is already stored VERY quickly, and equally rapidly store a new mapping. Otherwise you'd have to keep a sorted list of keys, which is much slower to store and retrieve mappings from.
+
+  - Key( e.g. my name), Index, Value (e.g. phone number)
+-------------------------------------------------------------
+Python 3 primitive data structures:
+tuple = ('a','b','c')
+list = ['a','b','c']
+dict = {'a':1, 'b': true, 'c': "name"}
+
+
+Vocab
+- amortized analysis - a method for analyzing a given algorithm's time complexity, or how much of a resource, especially time or memory, it takes to execute. The motivation for amortized analysis is that looking at the worst-case run time per operation can be too pessimistic
+
+
+Good: https://stackoverflow.com/questions/176011/python-list-vs-array-when-to-use 
+Basically, Python lists are very flexible and can hold completely heterogeneous, arbitrary data, and they can be appended to very efficiently, in amortized constant time. If you need to shrink and grow your array time-efficiently and without hassle, they are the way to go. But they use a lot more space than C arrays.
+
+However, if you want to do math on a homogeneous array of numeric data, then you're much better off using NumPy, which can automatically vectorize operations on complex multi-dimensional arrays.
+
+To make a long story short: array.array is useful when you need a homogeneous C array of data for reasons other than doing math.
+
+Use arrays only if you know everything is the same type.
+http://www.physics.nyu.edu/pine/pymanual/html/chap3/chap3_arrays.html
+
+- Vocab
+Dynamic Array
+
+Good: https://www.laurentluce.com/posts/python-list-implementation/
+List of pointers (allocated 4 at a time) ?
+
+-------------------------------------------------------------
+https://docs.opencv.org/3.3.0/da/d6e/tutorial_py_geometric_transformations.html
+-------------------------------------------------------------
+
+Arithmetic Series:
+1 + 2 + ... + n = n(n+1)/2 = (n+1, 2) // Combinatronics  -> O(n^2)
+
+Good: http://www.math.cmu.edu/~mlavrov/arml/13-14/sums-01-26-14.pdf
