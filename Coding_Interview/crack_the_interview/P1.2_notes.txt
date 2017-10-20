@@ -95,4 +95,19 @@ Oh! Are we allowed to edit the string? Because I would shave off repetitions as 
   ----- = ---------= --- = 16*15*14
   (N-r)!  (16 - 3)!  13!
 
-   
+  Other notations: P(N,r) 
+
+--------------------------------------------
+Hints: #1, #84, #122, #131
+
+1 - Describe what it means for two strings to be permutations of each other. Now look at that definition you provided. Can you check the strings against that definition?
+84 - There is a solution that is O(nlogn). Another solution uses some space but is O(n) time.
+
+122 - hash table be useful?
+
+131 - Two strings that are permutations should have the same chars but in different orders. Can you make the orders the same?
+
+Things I got well:
+- Size of strings equal
+- Sorting 
+
