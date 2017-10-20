@@ -1,0 +1,33 @@
+
+Advice:
+- 45 minutes to solve 1 or 2 problems
+- Quiet place, no cell phone, no music
+- Talk while thinking! Show analysis and comm skills.
+  - Talk your way through the problem out loud.
+  - Come up with the best solution before coding.
+
+- Don't start coding right away without a solution in your mind!
+- (Some ppl write meaningless code when they're stuck)
+- Forget pseudo-code.
+
+- Practice analyzing time & space complexity
+
+- Look at solutions last and compare.
+
+- Outtalk the interviewer
+- Code in python (faster) 
+
+- 15 hrs to read the coding interview book.
+- 185 Qs, 185 hrs. = 7.7 days.
+
+Common questions
+- Queue & Stack
+- Graphs & Trees 
+    - Study BFS = Breath First Search
+- Recurssion
+- Moderate & Hard questions. 
+
+Common patterns to solutions:
+- Use hashsets to detect duplication.
+- Append nodes to the head of a linked list, not the back.
+

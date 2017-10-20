@@ -47,3 +47,37 @@ Approach 3:
 I see an improvement. As I sort, I could keep track of the charcter count.
 
 Let's code. I'll use python.
+
+-------------
+- False is capitalized
+- Add : after if statements, for loops, and def of functions
+- I googled and learned.
+  ss.count('a')
+  cc in range (len(word))
+------------
+
+Hints: 44, 117, 132
+
+# 44  Try a hash table
+# 117 Could a bit vector be useful?
+# 132 Can you solve it in O(n*log n) time?
+      What might a solution like that look like? 
+
+-----------------------------------------------------------
+Solution: Things I did not see.
+
+- Is it an ASCII or a Unicode string?
+
+Unicode is a superset of ASCII. ASCII fits in one 8 bit byte.
+Unicode has more but 0-127 are the same mapping as in ASCII.
+
+UTF-32 (4 bytes) or UTF-8 (1 byte) may be used instead. 
+
+Extended ASCII = 256 characters.
+
+- Time complexity: O(n)
+- Space complexity: O(1) or O(c) b/c loop will never iterate more than 128 chars. Or O(min(c,n)) where c is the size of the charcter set.
+
+- You cannot have unique characters string that is 280 in lenght if your alphabet is limited to 128 unique caracters! 
+
+If the string length is larger than 128, false directly!
