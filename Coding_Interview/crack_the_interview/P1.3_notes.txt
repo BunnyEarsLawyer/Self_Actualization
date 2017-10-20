@@ -42,4 +42,26 @@ Worst case " xxxxxxxxxxx  " Even thought the replacement is at the beginning, I 
 I'm thinking if the string was in a linked list we couldn't have to worry about shifting.
 
 I think I want to shift things by 2 characters to make space for the replacement. Then look for "   " and replace it witht he three characters.
+----------------------
+- I had to look up split.
+- I had to look up getting a substring ss[:my_idx]
+                                       ss[-1:-2]
+- I didn't know you can turn string to a list with list(my_string)
 
+
+----------------------
+Hints: 53, 118
+
+53 - it's often easiest to modify strings by going from the end of the string to the beginning.
+118 - You may need to know the number of spaces. Can you just count them?
+
+---------------------
+(Stack overflow)
+https://stackoverflow.com/questions/1228299/change-one-character-in-a-string
+
+Don't modify python strings! Python strings are immutable.
+Work with them as lists, turn them into strings only when needed.
+
+E.g. aa = list(my_string)
+     aa[6] = 'W'
+     "".join(aa)           // turns int into a string.
