@@ -65,3 +65,8 @@ Work with them as lists, turn them into strings only when needed.
 E.g. aa = list(my_string)
      aa[6] = 'W'
      "".join(aa)           // turns int into a string.
+
+(FASTEST)
+text = 'abcdefg'
+text = text[:1] + 'Z' + text[2:]
+       a        +  Z  + cdefg
