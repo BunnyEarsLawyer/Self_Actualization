@@ -81,3 +81,7 @@ Extended ASCII = 256 characters.
 - You cannot have unique characters string that is 280 in lenght if your alphabet is limited to 128 unique caracters! 
 
 If the string length is larger than 128, false directly!
+
+- Are we allowed to edit the string?
+Sort the string in O(n*log(n)) time and then check neighbors.
+Sorting would take extra space.
