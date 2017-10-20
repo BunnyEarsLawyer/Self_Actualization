@@ -1,0 +1,49 @@
+// Determine if a string has all unique characters
+
+// Ex. "abc" // yes
+//     "aa"  // no
+
+Thought process:
+My first thing to try is to iterate through the string.
+Then store a list of individual caracters and add a count for each.
+Once any of the counts exceeds 2, then you stop.
+A string could be a null terminated array in the world of C.
+
+But first let me see if I have all the information.
+How long will the string be? Could it be a very larget string?
+Are any special characters allowed? Or is it all the alphabet?
+Are there any characters that could show up more often than others?
+
+Assuming they tell me it's only the alphabet and that all characters are randomly as likely to show up.
+
+How will the charcter be stored? Or is that something I define?
+
+Let's assume it's a string object.
+
+Ok. In the worst case, there could be a repeated character at the end of the string. So my first step would be to sort the characters.
+
+Then I could have two pointers to iterate the string. One ahead of the other.
+As soon as there is a repeated one, stop! Because there is repetition.
+
+If you reach the end, no repetitions were found.
+
+Let me see if I can think of another appraoch. Meanwhile I will provide an example of what I am thinking of doing.
+
+Approach 1:
+ABC....ZA. 
+^.......^
+
+
+Approach 2:
+1. Sort
+AABC...Z
+2. 
+AABC...Z
+^^
+Worst Case, ZZ repeated.
+ABC....ZZ
+
+Approach 3:
+I see an improvement. As I sort, I could keep track of the charcter count.
+
+Let's code. I'll use python.
