@@ -24,7 +24,7 @@ Common questions
 - Queue & Stack
 - Graphs & Trees 
     - Study BFS = Breath First Search
-- Recurssion
+- Recursion
 - Moderate & Hard questions. 
 
 Common patterns to solutions:
@@ -57,9 +57,29 @@ Advantages & Disadvantages
   - E.g. BFS, store a list of nodes we need to process. Each time we proccess a node, add adjacent nodes to the back of the queue. Allows us to process nodes in the order they are viewed.
 
 - Graphs
-
+  - A Graph is a collection of nodes with edges b/t some of them.
+      - Vertex (A.K.A node) = where lines connect into a point.
+        - Vertex a
+      - Edges  (~lines) = lines that connect nodes or vertices. May have arrows.
+        - Edge:(a,b)
+    - Directed graph = have specific direction, one arrow.
+    - Undirected graph = 2 way edges, no arrow or two arrows.
+    - Directed edges = 'one way streets'
+    - Undirected edges = 'two way strees'
+    - Connected Graph = A graph with isolated subgraphs, a path exists b/t every pair of vertices
+      - 2 vertices Pi and Pj, a path exists b/t Pi and Pj
+    - Acyclic graph = no cycles
+    - Implementation:
+      - Adjacent List
+      - Adjacent Matrix
+    - Searching (most common ways)
+      - DFS (Depth First Search)
+      - BFS (Breath First Search) 
+    - More topics
+      - Dijkstra's Algorithm
+      - Topological Sort 
 - Trees
-  - Trees are a type of graph. 
+  - Trees are a type of graph. A Tree is a connected graph without cycles.
   - Binary Tree, Binary Search Tree, Terniary or N-ary tree, tree with more nodes.
   - Balanced definition varies.
     - Balanced trees: Red-black trees, AVL trees.
@@ -72,5 +92,38 @@ Advantages & Disadvantages
   - Complete Binary Trees: Min-Heap, Max-Heap
   - Tries (A.K.A Prefix Trees)
 
+- Recurssion
+  - A recursive problem is built off of subproblems.
+  - Good candidate for recursion: 
+    - 'Design an algorithm to compute the nth...'
+    - 'Write code to list the n...'
+    - 'Implement a method to compute all ...'
+  - Go with your gut 50/50 chance. Practice!
+  - Bottom-up approach
+    - Solve for 1 element. Solve for 2 elements. And so on..
+  - Top-Down approach
+    - Divide problem for case N insto subproblems. (Careful of overlap)
+  - Half-and-Half Approach
+    - Divide data in half. E.g. binary search, merge sort.
+  - Comparison to iterative solution
+    - Recursion can be space inefficient ***
+      - O(n) memory b/c you add a new layer to the stack, depth of n.
+      - B/c of this it's better to implement recursion iteratively albeit 
+        with more complexity in the code.
+    - Discuss tradeoffs!
+
+- Dynamic Programming = optimization technique to speed up programs.
+  - People make a big deal of how scary these problems are. BS.
+  - Once you get the hang of them, they can be very easy.
+  - 1. Take a recursive algorithm and find the overlapping sub-problems (repeated calls).
+  - 2. Cache the results for future recursive calls.
+  -    You can study teh pattern of recusrive calls and implement something iterative
+       You still 'cache' previous work.
+  - Terminology
+    - Top down Dynamic programming = 'memoization'
+    - Bottom up Dynamic programming = 'dynamic programming' 
+  - E.g. Compute the nth Fibonacci number.
+  - Good problem-solving techniques
+    - Draw a call tree
+  - Further reading: Proof-by-induction.   
  
-    
