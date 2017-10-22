@@ -31,3 +31,46 @@ Common patterns to solutions:
 - Use hashsets to detect duplication.
 - Append nodes to the head of a linked list, not the back.
 
+Review
+- Implement a Hash table
+- Implement a stack and queue.
+- Use a stack to implement a recursive algo. iteratively.
+
+Advantages & Disadvantages
+- Array
+  - To insert or delete, you shift up to n items. O(n)
+  - Constant time to access an index b/c it's static in memory. O(c)    
+- Linked List
+  - Singly or Doubly linked list.
+  - Constant time to add or remove item. O(c)
+  - To look for an item you have to iterate each an every item O(n)
+- Hash Table
+
+- Stack
+  - LIFO. 'stack of plates'. Can be made using a Linked List.
+  - Constant time add or remove. O(c)
+  - No constant time access to the ith element. O(n)?
+
+- Queue
+  - FIFO. 'queue at a bank'. Can be made using a Linked List.
+  - Often used in BFS (breath first search) or in implementing a cache.
+  - E.g. BFS, store a list of nodes we need to process. Each time we proccess a node, add adjacent nodes to the back of the queue. Allows us to process nodes in the order they are viewed.
+
+- Graphs
+
+- Trees
+  - Trees are a type of graph. 
+  - Binary Tree, Binary Search Tree, Terniary or N-ary tree, tree with more nodes.
+  - Balanced definition varies.
+    - Balanced trees: Red-black trees, AVL trees.
+  - Insert and find take O(log n), assuming balanced.
+  - Complete definition: only the last right node allowed to be missing.
+  - Full binary tree definition: No nodes hade one child.
+  - Perfect tree: full + complete (rare in interviews) 
+    - 2^k - 1 nodes, k = levels
+  - Traversal: in-orde, post-order, pre-order (common in interviews)
+  - Complete Binary Trees: Min-Heap, Max-Heap
+  - Tries (A.K.A Prefix Trees)
+
+ 
+    
