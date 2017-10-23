@@ -1,0 +1,88 @@
+1.4 Palindrome permutation
+
+tacocat palindrome
+
+- number of letters are the same in the permuptation.
+taco
+- Do I have to check if the original word is a palindrome?
+
+aabbaa
+
+random  string of letters. They include white spaces.
+
+- Would these be limited only upper case and lower case alphanumberical letters?
+- Any case can be converted.
+
+E.g. Tact Coa
+Output are permutation of a palindrom: "taco cat", "atco cta"
+
+- Do they have to have a space in betweetn?
+tactcoa /No palindrom
+tacocat /Yes
+atcocta /Yes
+
+1. Count number of unique letters. 
+mirror by a unique letter
+mirror by a pair
+
+attcoctta
+
+ a-z, a corresponding count.
+
+a 4
+b 2
+c 1
+
+Allowed to make a palindrome.
+
+a 3
+b 1
+c 1
+
+aaabc
+aabca
+
+Ingetst letters. 
+Check if it's a palindrome.
+  Else, exit
+Output all permutations of that palindrome.
+
+def can_be_palindrome(ss):  "Aabb"
+   my_list = list(ss)  [A,a,b,b] 
+   // convert all to lowercase
+   // sort the list.
+   my_list.sort()
+
+   prev_char = my_list[0]
+   for idx in my_list:
+       // count each instance of a letter.
+       curr_char = my_list[idx]
+       if(curr_char == prev_char):
+           idx++
+       else:
+           curr_count = my_list.count(curr_char)
+           // list of tuples (key= letter, value = count) (no dictionary)
+           a_list.append(tuple(curr_char, curr_count)) 
+
+   final_list = []
+   final_list.size() = my_list.size() 
+
+   for jdx in a_list:
+       curr_char = a_list(jdx[0])
+       curr_count = a_list(jdx[1])
+       if(curr_count %2 == 0 ):
+          half_list = a_list(jdx[0])       
+       elif(curr_count == 1)
+          last_char = curr_char 
+
+   half_palindrome = half_list + last_char
+   // reverse half list, add it to half palindrome.
+   palindrom = half_list + last_char + reverse_half_list
+   // convert to string
+   palindrome = "".join(final_list)
+   return palidrom 
+
+
+#   if(curr_count % 2 == 0)
+
+
