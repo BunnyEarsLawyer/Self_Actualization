@@ -126,4 +126,11 @@ Advantages & Disadvantages
   - Good problem-solving techniques
     - Draw a call tree
   - Further reading: Proof-by-induction.   
- 
+
+
+Good review:
+http://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
+words = ['apple', 'boy', 'chum']
+ratios = [0.1, 0.2, 0.3]
+for i,word in enumerate(words):
+    rations[i]
