@@ -24,3 +24,30 @@ s1.sort()  abc
 s2.sort()  cba // not a rotation but a permutation.
 
 T = issubstring(s1,s2)
+
+----Sample of me going thru solution
+s1 = watbot , s2 = botwat
+
+n = 0   sub_s1 = 'watbot'
+        issub(sub_s1,s2)? -> F -> recursion
+n = 1   sub_s1 = 'watbo'
+        issub(sub_s1,s2)? -> F -> recursion
+n = 2   sub_s1 = 'watb'
+        issub(sub_s1,s2)? -> F -> recursion
+n = 3   sub_s1 = 'wat'
+        issub(sub_s1,s2)? -> T -> recursion
+
+The solution involves multiple calls to issubstring.
+The time it takes can be O(n-1) where n is the number of characters in the string.
+Simplified to O(n) and multiple stacks.
+
+If it's already the same abc = abc, it's a full rotation or a zero rotation.
+The worst case is where it's a last case n - 1. e.g. waterbottle vs. ewateverbottl
+
+Because there is always an order. You could potentially divide and conquer. Check by dividing the string in half first. THis helps a lot if the string is very large, e.g. 1 million characters.
+
+Then You divide again until you zone in the change. Unfortualy it's stilll a bit like gampling.
+You know that the smallest size is part of the string and you could terminate early without really exploring all the posible combinations.
+
+Some things I forgot to ask: 
+Counter clockwise vs. clockwise? Turns out it doesn't matter.
