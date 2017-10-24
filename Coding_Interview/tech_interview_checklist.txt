@@ -31,6 +31,14 @@ Common patterns to solutions:
 - Use hashsets to detect duplication.
 - Append nodes to the head of a linked list, not the back.
 
+Most common data structures to know in-and-out:
+- Array
+- Stack/Queue
+- Hashset/Hashmap/Hastable/Dictionary
+- Tree/Binary Tree
+- Heap
+- Graph
+
 Review
 - Implement a Hash table
 - Implement a stack and queue.
@@ -92,7 +100,7 @@ Advantages & Disadvantages
   - Complete Binary Trees: Min-Heap, Max-Heap
   - Tries (A.K.A Prefix Trees)
 
-- Recurssion
+- Recursion
   - A recursive problem is built off of subproblems.
   - Good candidate for recursion: 
     - 'Design an algorithm to compute the nth...'
@@ -134,3 +142,8 @@ words = ['apple', 'boy', 'chum']
 ratios = [0.1, 0.2, 0.3]
 for i,word in enumerate(words):
     rations[i]
+
+Numpy array
+for idx, value in np.ndenumarate(matrix):
+
+
