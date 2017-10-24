@@ -1,0 +1,39 @@
+Zero matrix
+
+MxN matrix is 0. Any element? yes
+the entire row and column are set to 0.
+
+
+x 0
+x x  
+
+0 0
+x 0
+
+Other drawings
+
+0----0
+|xxxx|
+|xxxx|
+
+
+1. get index of where 0 happens
+2. listofidx zero rows and columsn
+
+ll = [(0,1)...]
+       row, col
+ i, j
+(0,1)
+
+
+(:,col)
+
+I thought it would be matrix_nm.zeros(:,i)
+
+
+col---->j
+
+row
+|
+|
+i
