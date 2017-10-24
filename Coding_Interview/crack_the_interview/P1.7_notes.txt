@@ -1,0 +1,15 @@
+1.7 Image NxN
+
+each pixel = 4 bytes.
+
+Write a method to rotate the image by 90 degrees.
+
+
+Optimize O(n^2)
+
+Have a working N-N with a list of indices
+These indices would be used to retrieve data in constant time from a static matrix.
+Working transpose.
+
+instaed of rotataing, refert to the indexes.
+

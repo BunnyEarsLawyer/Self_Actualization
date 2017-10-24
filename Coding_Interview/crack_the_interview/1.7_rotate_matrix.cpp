@@ -8,6 +8,7 @@ int main()
     int matrix_nn [rr][cc];
     int rot_nn [rr][cc];
     int counter = 0;
+    // O(n^2)
     for (int ii = 0; ii < rr; ++ii) {
         for (int jj = 0; jj < cc; ++jj) {
             matrix_nn[ii][jj] = counter;
