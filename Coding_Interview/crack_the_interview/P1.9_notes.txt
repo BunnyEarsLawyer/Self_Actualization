@@ -1,0 +1,26 @@
+1.9
+
+1 call to isSubstring
+
+waterbottle
+ewater..
+lewater..
+tlewater..
+...
+aterbottlew
+
+isSubstring(s1,s2) - True if s1 is substring of s2, else False
+
+At the beginning I thought it was a mirror. Rotation != mirror
+
+simple:
+abc full
+cab + 1
+bca + 2
+
+Can I edit the strings?
+
+s1.sort()  abc
+s2.sort()  cba // not a rotation but a permutation.
+
+T = issubstring(s1,s2)
