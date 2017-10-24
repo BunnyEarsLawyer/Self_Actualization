@@ -1,0 +1,48 @@
+P1.5 One away
+
+edit - insert, remove ir replace?
+1 edit or 0 edits.
+
+return true n <= 1, false  > 1
+
+assuming: all lower case, no numbers, no special charcters, 
+all letters.
+
+E.g. pale (4) - ple (3) remove
+              - bale (4) replace
+              - pales (5) insert
+
+lenght (pale) vs. lenght( changed)
+ 4   3
+ 4   4
+ 4   5
+
+
+4+-1
+
+abs(diff(a-b)) <=1
+
+Bad things:
+- I thought of sorting at the beginning.
+aelp
+ablp 
+
+s1, s2
+
+algorithm:
+same lenght & exact match.
+
+1. exact match, return true.
+
+iterate each index
+compare counts
+s1.count(idx)
+s2.count(idx)
+
+match? no matter, add counter
+
+2. lower
+
+3. higher
+
+-One thing I didn't realize is that once diferent by 1, you add 1 to counter automatically.
