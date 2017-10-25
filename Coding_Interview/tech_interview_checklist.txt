@@ -123,6 +123,9 @@ Advantages & Disadvantages
   -Types: 
     - tail recursion
     - head recursion 
+    - Tabulation = make a table
+    - Memoization = wraper code
+    Source: https://stackoverflow.com/questions/6164629/dynamic-programming-and-memoization-bottom-up-vs-top-down-approaches
 
 - Dynamic Programming = optimization technique to speed up programs.
   - People make a big deal of how scary these problems are. BS.
