@@ -1,0 +1,14 @@
+Triple step
+
+152: Approach this from the top down. What is the last hop the child made?
+178: If we knew the number of paths to each of the steps before step 100, could
+     we compute the number of steps to 100?
+217: We can compute the number of steps to 100 by the number of steps to 99, 98, and 97.
+     This corresponds to the child hopping 1,2,3 steps at the end.
+     Do we add those or multiply them?
+     If it's f(100) = f(99) + f(98) + f(97) 
+     or      f(100) = f(99) * f(98) * f(97) 
+237: Multiply the values when it is 'we do this, then this'
+     Add them when it's 'we do this OR this'
+262: What is the runtime of this method? think carefully. Can you optimize it?
+359: Try memoization as a way to optimize an inefficient recursive program.

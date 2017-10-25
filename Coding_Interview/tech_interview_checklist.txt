@@ -120,6 +120,10 @@ Advantages & Disadvantages
         with more complexity in the code.
     - Discuss tradeoffs!
   - REMEMBER: Recursive algorithms take at least O(n) space
+  -Types: 
+    - tail recursion
+    - head recursion 
+
 - Dynamic Programming = optimization technique to speed up programs.
   - People make a big deal of how scary these problems are. BS.
   - Once you get the hang of them, they can be very easy.

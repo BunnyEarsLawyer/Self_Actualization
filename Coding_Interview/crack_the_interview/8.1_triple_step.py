@@ -1,28 +1,20 @@
 # /env/usr/bin/python
-# Try 2
-def count_steps(n, maxx, step_sz):
-    print(n, maxx)
-    if(n == maxx):
-        return 1
-    elif(n < maxx):
-        n = n + step_sz
-        count = count_steps(n, maxx, step_sz)
-        return count
-    else:
-        return 0
+import pdb
 
-def ways(n, maxx, steps):
+def ways(n, maxx, steps, count):
     diff = maxx - n
+#   count = 0
     if(diff == 0):
-        return 1
+        return count + 1
     elif(n < maxx):
-        count = 0
         for step in steps:
-           print('n', n, 'step', step)
+           print('n', n, 'step', step, 'count t', count)
            n = n + step
-           curr_count = ways(n, maxx, steps)
-           print('n', n, 'step', step, 'counter', curr_count)
+           curr_count = ways(n, maxx, steps, count)
            count = count + curr_count
+#          pdb.set_trace()
+           print('n', n, 'step', step, 'counter x', curr_count, 'count t', count)
+        print('final_count', count)
         return count
     elif(n > maxx):
         return 0 
@@ -32,10 +24,6 @@ maxx = 3
 n = 0
 total = 0
 curr_counter = 0
-#for a_step in v1: 
-#    total = total + count_steps(n,maxx,a_step)
 
-total = ways(n,maxx,v1)
+ways(n,maxx,v1,total)
 print('grand',total)
-print(total)     
-print('hi')     
