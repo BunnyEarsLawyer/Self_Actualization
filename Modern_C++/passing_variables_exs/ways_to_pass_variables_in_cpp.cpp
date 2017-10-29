@@ -12,33 +12,43 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace zoom
+// Takes ownership
+void pass_by_value( std::string s)
 {
-   // Takes ownership
-   void pass_by_value( std::string s)
-   {
-   }
-   // Required, modifies
-   void pass_by_reference( std::string& s)
-   {
-   }
-   // Required, read-only 
-   void pass_by_const_reference( const std::string& s)
-   {
-   }
-   // Optional, read-only 
-   void pass_const_pointer( std::string const *s)
-   {
-   }
-   // Optional, modifies 
-   void pass_pointer( std::string *s)
-   {
-   }
-
+}
+// Required, modifies
+void pass_by_reference( std::string& s)
+{
+}
+// Required, read-only 
+void pass_by_const_reference( const std::string& s)
+{
+}
+// Optional, read-only 
+void pass_const_pointer( std::string const *s)
+{
+}
+// Optional, modifies 
+void pass_pointer( std::string *s)
+{
 }
 
 int main()
 {
-    std::cout << "hello world" << std::endl;
-    std::string s1 = "inti";
+    std::string s1 = "pass by value";
+    std::string s2 = "pass by reference";
+    std::string s3 = "pass by const reference";
+    std::string s4 = "pass by const reference";
+    std::string s5 = "pass by const reference";
+    std::string *p4 = &s4; 
+    std::string *p5 = &s5; 
+
+    std::cout << "s1: " << s1 << std::endl;
+
+    pass_by_value( s1 );
+    pass_by_reference( s2 );
+    pass_by_const_reference( s3 ); 
+    pass_const_pointer( p4 ); 
+    pass_pointer( p5 ); 
+
 }
