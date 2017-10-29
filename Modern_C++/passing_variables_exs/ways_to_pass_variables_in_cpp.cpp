@@ -42,18 +42,34 @@ ways_to_pass_variables_in_cpp.cpp:30:7: error: passing ‘const string {aka cons
 void pass_const_pointer( std::string const *p)
 {
     std::string z = "modification";
+    std::string zz = "another string";
+
+    // Cannot modify this way:
+    //  *p = "modification";
+    //   *p = z;
+    std::cout << "#5 p: " << p << " *p: " << *p 
+              << ", cannot change original string " << std::endl;
+
+    // I can change the pointer content locally
     p = &z;
-    std::cout << "#4 p: " << p << " " << *p 
-              << ", can modify input" << std::endl;
+    std::cout << "#4 p: " << p << " *p: " << *p 
+              << ", changed what pointer points to locally" << std::endl;
 }
 // Optional, modifies 
 void pass_pointer( std::string *p)
 {
     std::string z = "modification";
+    std::string zz = "another string";
 
+    // I can change the original string
     *p = z;
-    std::cout << "#5 p: " << p << " " << *p 
-              << ", can modify input, original string also changed " << std::endl;
+    std::cout << "#5 p: " << p << " *p: " << *p 
+              << ", changed original string " << std::endl;
+
+    // I can change the pointer content locally
+    p = &zz;
+    std::cout << "#5 p: " << p << " *p: " << *p 
+              << ", changed what pointer points to locally " << std::endl;
 
 }
 
@@ -63,8 +79,8 @@ int main()
     std::string s2 = "pass by reference";
     std::string s3 = "pass by const reference";
     std::string s4 = "pass const pointer";
-    std::string s5 = "pass pointer";
     std::string *p4 = &s4; 
+    std::string s5 = "pass pointer";
     std::string *p5 = &s5; 
 
     std::cout << "s1: " << s1 << std::endl;
@@ -90,8 +106,8 @@ int main()
     std::cout << "s2: " << s2 << std::endl;
     std::cout << "s3: " << s3 << std::endl;
     std::cout << "s4: " << s4 << std::endl;
-    std::cout << "s5: " << s5 << std::endl;
     std::cout << "*p4: " << p4 << " " << *p4 << std::endl;
+    std::cout << "s5: " << s5 << std::endl;
     std::cout << "*p5: " << p5 << " " << *p5 << std::endl;
 
 }
