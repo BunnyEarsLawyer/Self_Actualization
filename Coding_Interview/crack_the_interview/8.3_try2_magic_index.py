@@ -4,6 +4,7 @@
 # A = [-1,1,7,8,9] // 1
 
 def find_magic(A):
+    print(A)
     # 1. check if it's possible to have magic idx's or if A is empty.
     if( len(A) == 0): 
         return
@@ -13,13 +14,12 @@ def find_magic(A):
     maxx = n-1 # = 4
     curr_val = A[maxx/2]
     curr_idx = maxx/2
-    
-    
     bottom_edge = A[0]   #-1
     top_edge    = A[n-1] #9
     
-    if(top_edge < minn) or (bottom_edge > maxx):
-        print('no magic')
+    # if(top_edge < minn) or (bottom_edge > maxx):
+    #    print('no magic')
+    #    print(A, top_edge, minn, bottom_edge, maxx)    
     
     # 2. Base case
     # [ A  ]
