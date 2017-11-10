@@ -53,3 +53,23 @@ Improvement:
 Check that a > 0 and b > 0
 
 // 38 minutes to spare. 
+---------------------------------------
+
+Not optimal. The best one is O(log(s))
+
+Hints:
+166. 8x9
+
+203. 4x9 -> double = 8x9
+
+227. What about odd numbers?
+    
+234. Is there duplicated work?
+
+246. 9x7 -> 4x7 -> double = 8x7 Then add 7.
+
+
+
+
+
+
