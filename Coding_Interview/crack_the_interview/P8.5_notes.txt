@@ -69,7 +69,7 @@ Hints:
 246. 9x7 -> 4x7 -> double = 8x7 Then add 7.
 
 
-
+- Interesting: natural numbers are also recursive data: a number is either zero or the successor of another natural number.
 
 
 
