@@ -1,0 +1,75 @@
+
+
+P8.5. Multiply 2 positive integers.
+
+- Better to start with the base case first!
+
+- Doing math terms helps me the most.
+
+a>0
+b>0
+no *, but allowed to use +, -, bitshit.
+
+- Use short and sweet variable and method names.
+rmult(a,b)
+|
+return a*b
+
+- Going over a simple case helped me the most.
+a = 1, b = 2
+
+- Writing the variables states at each step fo the recursion helps me the most.
+- Writing the stack backwards helps me the most.
+
+
+E.g.
+
+
+#3
+rmult a = 1  |                                 returns 0 
+      b = 0  | 
+
+^
+|
+
+#2
+rmult a = 1  |  return a += rmult(a,b,)        returns a + 0
+      b = 1  | 
+
+^
+|
+
+#1
+rmult a = 1  |  b--; // b = 1 
+      b = 2  |  return a += rmult(a,b,)       returns a + a + 0
+
+
+O(N) Where N is the largest of the two. We want to make the counter (b) the lowest one.
+
+Improvement:
+a > b or b > a.
+
+Improvement:
+Check that a > 0 and b > 0
+
+// 38 minutes to spare. 
+---------------------------------------
+
+Not optimal. The best one is O(log(s))
+
+Hints:
+166. 8x9
+
+203. 4x9 -> double = 8x9
+
+227. What about odd numbers?
+    
+234. Is there duplicated work?
+
+246. 9x7 -> 4x7 -> double = 8x7 Then add 7.
+
+
+
+
+
+
