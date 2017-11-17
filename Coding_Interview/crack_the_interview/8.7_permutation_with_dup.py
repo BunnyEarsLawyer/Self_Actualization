@@ -1,18 +1,15 @@
 #! /usr/bin/env python
 
-def f(cc,rr):
-    if len(rr) == 1:
-        print cc
-        print rr 
-        return cc + rr
-    if len(rr) > 1:
-        p(rr)
+def p(c,w):
+    if len(w) == 1:
+        print(w) 
+        print('\n')
+    if len(w) > 1:
+        for cc in w:
+             print cc
+             rr = w.replace(cc,'')
+             p(cc,rr)
 
-def p(w):
-    for cc in w:
-         rr = w.replace(cc,'')
-         answer = cc + f(cc,rr) 
-         print('\n')
+print ('->hi')
 
-print ('hi')
-p('hi')
+p('','her')
