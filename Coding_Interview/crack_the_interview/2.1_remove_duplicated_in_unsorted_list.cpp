@@ -36,7 +36,7 @@ Because vectors use an array as their underlying storage, erasing elements in po
 // Boost solution:
 // boost::remove_if(words, bind(&Player::is_anagram, _1)<=0 );
 
-    list<int> numbers = {1,2,3,4,1};
+    list<int> numbers = {1,1,2,3,4,1};
 
     // Prints list 
     std::cout << "Result\n";
@@ -51,39 +51,36 @@ Because vectors use an array as their underlying storage, erasing elements in po
     // std::list provides only bidirectional iterators.
     // std::list::sort(numbers)
     numbers.sort();
-/*
+
+
     // Iterator 1: Iterate through each item
-    for ( list<int>::iterator ii = numbers.begin(); ii != numbers.end(); ++ii )
+    for ( list<int>::iterator it = numbers.begin(); it != numbers.end(); ++it )
     {
 
-        // Iterator 2:  
-        for ( list<int>::iterator jj = numbers.begin(); jj != numbers.end(); ++jj )
-        {
-            // Don't compare against yourself only to others
-            std::cout << "where " << *ii << " " << *jj << endl; 
-            if (&*ii != &*jj) 
-            {
-                  if( is_anagram(*ii, *jj) )
-                  {
-                     std::cout << "erase " << *ii << " " << *jj << endl; 
-                     ii = numbers.erase(ii);
-                     jj = numbers.erase(jj);
+        // Oh no, C++ linked std::list does not have next(), I need a wrapper
+        // uses #include <iterator> but I can use Boost too!
+        // This means, I want the next one
+        auto next = std::next(it, 1);
 
-                     // Reset b/c the list has been removed!
-                     if(!numbers.empty())
-                     {
-                         ii = numbers.begin();
-                         jj = numbers.begin();
-                     }
-                  } 
-            }
-            else
-            {
-                std::cout << "same" << *ii << " " << *jj << endl; 
-            }
+        if (*it == *next) 
+        {
+            std::cout << "same " << *it << " " << *next << endl; 
+
+            // Options: list::remove() - cannot resize
+            // Options: list::erase()  - deletes item in real time BUT 
+            //          pointers point to whatever is left 
+
+            // IMPORTANT: Notice it's not dereferenced, it deletes by position
+            numbers.erase(next);
+
+            // B/c the iterator will be incremented by 1 but there might be another duplicate 
+            // A good question: Are there more than 1 duplicated values? E.g. 7 instances of a number
+            it = std::prev(it,1);
+
         }
+
     }
-*/
+
     // Prints final result
     std::cout << "Result\n";
     for (const int& number : numbers)
