@@ -25,46 +25,46 @@ void sorted_merge_answer(int[] A, int[] B, int lastA, int lastB)
        idxmerged--;
    }
 */
-void sorted_merger(const std::array<int, 5> & A , const std::array<int, 3> & B, int nA, int nB)
+void sorted_merger(const std::array<int, 5> & A , const std::array<int, 3> & B)
 {
-/*
-   int nR = nA;
+   int nA = A.size();
+   int nB = B.size();
 
    int i, j = 0;
 
-   int R[nR];
+   std::array<int,5> R;
 
-   for(int k = 0; k < nR; k++) {
+   for(int k = 0; k < A.size(); k++) {
 
-       while(j < nB){
-           if(A[i] < B[j]) {
-               R[k] = A[i]; i++;
+       if(j < nB){
+
+           if( A.at(i) < B.at(j) ) {
+               R.at(k) = A.at(i); i++;
            } 
            else{
-               R[k] = B[j]; j++;
+               R.at(k) = B.at(j); j++;
            } 
        } 
     }      
 
    // Print resulting array
-   for(int k = 0; k < nR; k++) {
-       std::cout << " k " << k  << "R[k] = " << R[k] << std::endl;
-
+   for(const auto &item : R) {
+       std::cout << item << std::endl;
    }
-*/
 }
 
 int main()
 {
-
-int nA = 5;
-int nB = 3;
 
 // C-style arrays
 int large_array [] = {1,8,0,0,0};
 int small_array [] = {2,3,5};
 // C-style arrays decay to pointers
 const int * p_to_large_array = large_array;
+//
+// Functions cannot declare parameters that are truly arrays
+// What they do is declare //references// to arrays
+//
 
 //
 // Always prefer modern std::array to a built-in array!
@@ -75,7 +75,7 @@ A = {1,8,0,0,0};
 std::array<int, 3> B;
 B = {2,3,5};
 
-sorted_merger(A, B, nA, nB);
+sorted_merger(A, B);
 
 std::cout << "hi" << std::endl;
 return 0;
