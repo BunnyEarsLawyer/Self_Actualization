@@ -1,0 +1,79 @@
+9.1
+
+Stock data: Image you are building some sort of service that up to 1000 client applications will call to get simple, end-of-day stick price information (open, close, high, low). You may assume you already have the data, you can store it in any format you wish. How would you design the client-facing service that provides the information to client applications?
+
+You are reponsible for the development, rollout, and ongoing monitoring and maintenance of the feed.
+
+Describe the different methods you considered and why you would recommend your approach. Your service can use any technologies you wish, and can distribute the information to the client applications in any mechanism you choose.
+
+My answer:
+
+I would define a class, some methods would be get_open(), get_close(), get high(), and get_low().
+This service class would be in a server connected to the other servers via an encrypted network.
+
+I already have the data from the stock market. I want fast retrieval so the first question to ask is how much data are we dealing with? Things that come to mind to store it are certainly binary search trees. Therefore, I would want to store the ticker symbols in order. The data itself would be encapsulated in a class or a struct with the corresponding values, open, close, high, low for each data point.
+
+The right answer:
+
+Focus from the statement, how do we actually distribute the information to clients?
+Assuming we have a bunch of scripts that magically collect the information.
+
+- Client ease of use: we want the service to be easy for the clients to implement and be useful for them
+- Ease for ourselves: service should be as easy to implement for us.
+- Flexibility for Future Demands: What would you do in the real world?
+- Scalability and Efficiency: Always mind efficiency.
+
+
+-------------Data Storage:
+Solution 1: 
+
+Data in simple text files. Clients download the data through some FTP server.
+
+File Tranfer Protocol = The language networked computers use on a TCP/IP network( like the internet)
+
+E.g. site:ftp.fakesite.org login:mcalore pass:h4x0r4lyfe port:21
+
+It's easy to maintain but requires more complex parsing to do any query.
+
+Solution 2:
+Use a standard SQL database and let clients plut directly into that.
+Pros:
+ - Easy way to query, and do query like "All stocks having open price > N and closing < M"
+ - Rolling back, backing up data, and security are all there. No need to re-invent the wheel. 
+ - Easy for clients to integrate to already existing applications. SQL is a standard feature.
+
+Cons:
+ - Heavy weight, the few bits of information are too tiny.
+ - Not easy for humans to read.
+ - Clients may do expensive and inefficient queries, our servers bear the cost.
+
+Solution 3:
+
+XML to distribute the information. Data has fixed format and size.
+
+Pros:
+ - Easy to distribute, easy for machines and humans to read.
+   THAT IS WHY XML IS A STANDARD DATA MODEL TO SHARE AND DISTRIBUTE DATA!
+
+ - Most languages have a library to perform XML parsing. It's also easy for clients to implement.
+ - We can add new data to XML file by adding more nodes. A parser wouldn't break.
+ - We can use existing tools to back up XML files
+
+Cons:
+ - We are sending the client ALL the information even if they only wanted a little. Inefficient
+ - Queries performed mean we have to parse the entire file!
+
+--------------In addition:
+Web services (E.g. SOAP) for client data access.
+
+Pros: Additional security.
+
+Cons: Clients will be limited to grabbing data how we want them to. 
+      In contrast, SQL implementation, a client can query for highest stock price.
+
+TLDR;
+
+Pure text file
+SQL database and servers
+XML data
+web service
