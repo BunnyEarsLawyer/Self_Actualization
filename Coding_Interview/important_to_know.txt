@@ -1,5 +1,9 @@
 
-
+C++ 11:
+lvalues = have identity and cannot be moved from are called lvalue expressions;
+xvalue = have identity and can be moved from are called xvalue expressions;
+prvalue = do not have identity and can be moved from are called prvalue ("pure rvalue") expressions;
+--------------
 
 
 - Hash Tables
