@@ -41,14 +41,14 @@ but in if-statements, you have to read each if-statement carefully.
 
 enum Rainbow_Color
 {
-    RC_RED;      // Default value is 0
-    RC_ORANGE;   // Default value is 1
+    RC_RED,      // Default value is 0
+    RC_ORANGE    // Default value is 1
 };
 
 enum Rainbow_Color
 {
-    RC_RED    = 10;    // Default value is 0
-    RC_ORANGE = 255;   // Default value is 1
+    RC_RED    = 10,    // Default value is 0
+    RC_ORANGE = 255    // Default value is 1
 };
 
 

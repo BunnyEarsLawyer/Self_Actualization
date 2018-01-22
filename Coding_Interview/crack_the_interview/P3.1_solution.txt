@@ -1,0 +1,29 @@
+
+Q: 3 in 1
+
+Describe how you could use a single array to implement 3 stacks.
+
+Stack, like stack of plates. You have a push() that pushes to the top. And a pop() that pops the top.
+
+An array is a continous space in memory.
+
+You want 3 stacks. But I only have 1 array. I could partition the array into 3 since it's just memory space.
+
+Then create wrappers to that array to not allow a user to access more than the front and pop from it.
+
+I would use 3 pointers at 3 different spaces. These define the 'top' of the stack. I would have a hard set limit on the stack. So, I define certain memory addresses as the hard end.
+
+As items get added, I can just move the pointer to the next one and consider that the new top. As items get popped back the pointer retrieves. If the pointer reaches the last memory address and someone tries to push, it error with the message 'No more space in the stack'.
+
+This is application dependant but I assume the three stacks are used by different users or processes.
+
+If a stack is empty, I can point it to null pointer.
+
+Answer:
+
+Allocate the 1st third to the first stack, the 2nd third to the second stack, final to the third stack.
+
+One might be bigger than the other, can we be flexible with the divisions?
+
+
+
