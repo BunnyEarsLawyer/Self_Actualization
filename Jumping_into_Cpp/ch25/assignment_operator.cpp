@@ -72,6 +72,7 @@ public:
     //
     // Assignment Operator:
     //
+    // const ensures you do not alter the input (read-only)
     LinkedList& operator=  (const LinkedList& rhs);
 
 
