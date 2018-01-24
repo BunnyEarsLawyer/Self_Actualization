@@ -14,6 +14,10 @@
 // If a class has a c-style array, only the pointer to the array is copied, not the buffer.
 // This shallow copy is member-wise coping
 
+// In order to count the number of objects created in C++
+// use CRTP: 'Curiously Recurring Template Pattern'
+// https://stackoverflow.com/questions/1926605/how-to-count-the-number-of-objects-created-in-c++
+
 class SharedPointer
 {
 public:
