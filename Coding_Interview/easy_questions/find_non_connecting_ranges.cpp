@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 struct range
 {
@@ -24,10 +25,13 @@ bool is_connected(const range & x, const range & y)
     return false;
 
 }
+
 // Find all non connecting ranges.
 int main()
 {
     std::cout << "hi";
+
+    std::vector<range> ranges;
 
     range X;
     range Y;
@@ -36,16 +40,43 @@ int main()
     Y.a = 2;    Y.b = 5;
     std::cout << "connected? " << is_connected(X,Y) << "\n";
 
+    ranges.push_back(X);
+    ranges.push_back(Y);
+
     X.a = 2;    X.b = 5;
     Y.a = 3;    Y.b = 4;
     std::cout << "connected? " << is_connected(X,Y) << "\n";
 
+    ranges.push_back(X);
+    ranges.push_back(Y);
+
     X.a = 2;    X.b = 3;
     Y.a = 3;    Y.b = 4;
     std::cout << "connected? " << is_connected(X,Y) << "\n";
 
+    ranges.push_back(X);
+    ranges.push_back(Y);
+
     X.a = 2;    X.b = 3;
     Y.a = 20;    Y.b = 24;
     std::cout << "connected? " << is_connected(X,Y) << "\n";
+
+    ranges.push_back(X);
+    ranges.push_back(Y);
+
+    std::vector<range>::iterator ii;
+    std::vector<range>::iterator jj;
+
+    for(ii = ranges.begin(); ii < ranges.end(); ++ii)
+    {
+        for(jj = ranges.begin(); jj < ranges.end(); ++jj)
+        {
+            if(is_connected(*ii,*jj))
+            {
+                std::cout << ii->a << " " << ii->b << "\n";
+                std::cout << jj->a << " " << jj->b << "\n";
+            }
+        } 
+    } 
 
 }
