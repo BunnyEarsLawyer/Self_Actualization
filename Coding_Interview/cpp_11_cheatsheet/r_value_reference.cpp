@@ -3,6 +3,28 @@
 //    1. Moving semantics
 //    2. Perfect Forwarding
 
+/*
+Note 1: The most important place for rvalue reference is overloading
+- copy constructor 
+- copy assignment operator
+E.g. 
+
+X& X::operator=(X const & rhs);   // copy assignment operator
+X& X::operator=(X && const rhs);  // overloaded copy assignment operator
+
+Note 2: Move semantics is implemented for all STL containers in C++11.
+This means your code will get faster w/out changin a thing.
+
+Note 3: Pass by reference should only be used if you want to pass a variable back!
+
+Not 4: Move constructor/ Move assignment operator
+Purpose: avoid costly and unnecessary deep copying
+1. Powerful where passing by reference and passing by value are used.
+2. You have finer control
+
+*/
+
+
 //
 // The most useful place for r-value reference
 // is to overload 'copy constructor' and
