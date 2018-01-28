@@ -15,6 +15,12 @@ template <typename T> struct Traits;
 template <typename T>
 struct Traits
 {
+
+    // Static: This feature means the variable is not automatic, 
+    // i.e. allocated and freed on the stack with each invocation 
+    // of the function. Instead the variable is allocated in the 
+    // static data area, it is initialized to zero and persists 
+    // for the life of the program.
     static string name(int n)
     {
 	return "unknown";
