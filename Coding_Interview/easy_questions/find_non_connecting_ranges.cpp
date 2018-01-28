@@ -71,8 +71,9 @@ int main()
     {
         for(jj = ranges.begin(); jj < ranges.end(); ++jj)
         {
-            if(is_connected(*ii,*jj))
+            if(!is_connected(*ii,*jj))
             {
+                std::cout << "These are not connected: ";
                 std::cout << ii->a << " " << ii->b << "\n";
                 std::cout << jj->a << " " << jj->b << "\n";
             }
