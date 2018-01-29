@@ -20,8 +20,21 @@ int ones_in_binary( int x )
 int main()
 {
 
+    int x;
+    cout << "Enter a number: ";
+    cin >> x;
+    cout << "You entered :" << x << "\n";
+
     // 1 = 0b01
-    // 2 = 0b10
+    // 2 = 0b10 // Shifted left by 1 (<< 1)
+    // 3 = 0b01 // Shifted right by 1 (>> 1)
+
+    int y;
+    y = x << 1;
+    cout << "Shift x left by 1 and stored in y: \n" << y << "\n";
+    y = y >> 1;
+    cout << "Shift y right by 1 and stored in y: \n" << y << "\n";
+
 
 /*
     // To execute please define "int main"
@@ -35,5 +48,4 @@ int main()
         cout << word;
     }
 */
-    return 0;
 }
