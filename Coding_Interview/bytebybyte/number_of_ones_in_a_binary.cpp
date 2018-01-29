@@ -10,13 +10,6 @@
 #include <iostream>
 using namespace std;
 
-int ones_in_binary( int x )
-{
-
-    return 0;    
-   
-}
-
 int main()
 {
 
@@ -29,23 +22,29 @@ int main()
     // 2 = 0b10 // Shifted left by 1 (<< 1)
     // 3 = 0b01 // Shifted right by 1 (>> 1)
 
+    cout << "------------\n";
     int y;
     y = x << 1;
-    cout << "Shift x left by 1 and stored in y: \n" << y << "\n";
+    cout << "Shift input left by 1 and stored in y: \n" << y << "\n";
     y = y >> 1;
     cout << "Shift y right by 1 and stored in y: \n" << y << "\n";
+    cout << "------------\n";
 
+    // x = 0b00000001
+    // x = 0b10000000
+    cout << "You entered :" << x << "\n";
 
-/*
-    // To execute please define "int main"
-    auto words = {"Hellow,", "World!", "\n"};
+    int count_bits = 0;
 
-    // O-notation
-    // source: https://stackoverflow.com/questions/2307283/what-does-olog-n-mean-exactly
-    //
-    for (const string& word : words)
-    {
-        cout << word;
+    // While it's not 0, keep shifting right.
+    // When the AND of the last bit is a 1, then add it to the counter. 
+    while(x != 0){
+        if(x & 1){
+            count_bits++;
+        }
+        x = x >> 1;
     }
-*/
+
+    cout << "There are " << count_bits << " ones in the number inputted\n";
+
 }
