@@ -33,6 +33,9 @@ void relay(T&& arg)
     foo( std::forward<T>(arg));
 }
 
+// std::forward, if arg is an lvalue, foo gets an lvalue
+//               if arg is an rvalue, foo gets an rvalue 
+
 */
 
 #include<iostream>
